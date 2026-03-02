@@ -1,107 +1,143 @@
-# Especificaciones de Refactorización: Sección Servicios (Full Text + Galerías)
+# Especificaciones de Refactorización: Sección Servicios (Textos Literales y Galerías)
 
 ## 1. Objetivo y Nuevo Enfoque UI/UX
-El cliente ha solicitado que el texto de los servicios se muestre **en su totalidad, sin recortes**, e incluir galerías de imágenes. Debes refactorizar la sección utilizando un enfoque de **Tarjetas (Cards) + Paneles Laterales Deslizantes (Drawers) o Ventanas Modales (Modals)**.
+[cite_start]El cliente ha solicitado que el texto de los servicios se muestre **en su totalidad, exactamente como se proporciona, sin recortes ni simplificaciones**[cite: 33, 41, 66, 94, 132, 159]. Debes refactorizar la sección utilizando un enfoque de **Tarjetas (Cards) + Paneles Laterales Deslizantes (Drawers) o Ventanas Modales (Modals)**.
 
 * **Vista Principal:** Un Grid de 5 tarjetas elegantes. Cada tarjeta mostrará el título del servicio, un icono/imagen representativa y un botón "Ver Especificaciones Técnicas".
 * **Interacción (JavaScript):** Al hacer clic en el botón, se debe abrir un Modal o un Drawer.
-* **Contenido del Modal:** Dentro del Modal se volcará TODO el texto detallado a continuación, seguido de una galería de imágenes de prueba (Placeholders).
+* **Contenido del Modal:** Dentro del Modal se volcará TODO el texto detallado a continuación de manera literal, seguido de una galería de imágenes de prueba (Placeholders).
+
+*Instrucción estricta para Cursor: Omite las etiquetas de citas `` al momento de generar el HTML en tu código final, están aquí solo como referencia de origen.*
 
 ## 2. Textos de Introducción (Sección Principal)
-* **Título:** SERVICIOS
-* **Subtítulo:** Ingeniería 360° para la Continuidad de su Industria
-* **Descripción:** En New Proyect, integramos capacidades críticas para garantizar la eficiencia de sus activos. Desde la intervención especializada de equipos estáticos y rotativos, hasta obras civiles de envergadura y gestión de procura internacional, ofrecemos un respaldo técnico total. Nuestro compromiso es transformar el mantenimiento en una ventaja competitiva para su operación.
+* [cite_start]**Título:** SERVICIOS [cite: 32]
+* [cite_start]**Subtítulo:** Ingeniería 360° para la Continuidad de su Industria [cite: 34]
+* [cite_start]**Descripción:** En New Proyect, integramos capacidades críticas para garantizar la eficiencia de sus activos. [cite: 35] [cite_start]Desde la intervención especializada de equipos estáticos y rotativos, hasta obras civiles de envergadura y gestión de procura internacional, ofrecemos un respaldo técnico total. [cite: 36] [cite_start]Nuestro compromiso es transformar el mantenimiento en una ventaja competitiva para su operación. [cite: 37]
 
-## 3. Contenido Íntegro para los Modales/Drawers
+## 3. Contenido Íntegro para los Modales/Drawers (Usar texto LITERAL)
 
-### Modal Servicio 1: Inspección Técnica y Ensayos No Destructivos (END)
-* **Texto Principal:** La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos, identificar riesgos antes de que se conviertan en fallas y garantizar el cumplimiento de las normativas internacionales de seguridad.
-* **1. Evaluación de Integridad Mecánica:** Realizamos diagnósticos profundos para determinar la vida remanente y el estado operativo de sus instalaciones críticas.
-    * Estudios de Inspección Inicial: Auditoría técnica integral antes de paradas de planta o puestas en marcha.
-    * Medición de Espesores (Ultrasonido): Monitoreo de pérdida de material por corrosión o erosión en tuberías, recipientes a presión y tanques.
-    * Análisis de Verticalidad y Asentamiento: Control geométrico preciso en tanques de almacenamiento para prevenir fallas estructurales.
-* **2. Ensayos No Destructivos (END):** Detección de discontinuidades sin alterar la integridad de la pieza o equipo.
-    * Líquidos Penetrantes y Partículas Magnéticas: Localización de grietas y defectos superficiales o subsuperficiales en soldaduras y componentes críticos.
-    * Inspección Visual (VT): Evaluaciones directas e indirectas bajo estándares internacionales (API, ASME, AWS).
-    * Pruebas de Hermeticidad: Verificación de fugas en sistemas de tuberías y sellos.
-* **3. Ingeniería de Corrosión y Reportes Técnicos:** No solo entregamos datos, entregamos soluciones.
-    * Mapeo de Corrosión: Identificación de zonas críticas para planificación de parches o reemplazos.
-    * Informes de Certificación: Documentación técnica detallada para auditorías y cumplimiento legal.
-* **¿Por qué confiar su inspección con nosotros?**
-    * Precisión Milimétrica: Equipos de medición de última generación calibrados bajo normas internacionales.
-    * Personal Certificado API: Inspectores con amplia experiencia en entornos industriales exigentes.
-    * Optimización de Costos: Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos.
-* **-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de 3 imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END`]**
+### [cite_start]Modal Servicio 1: Inspección Técnica y Ensayos No Destructivos (END) [cite: 39, 40]
+* **Texto Principal:** La prevención es la base de la rentabilidad. [cite_start]En [Nombre de tu Empresa], aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos, identificar riesgos antes de que se conviertan en fallas y garantizar el cumplimiento de las normativas internacionales de seguridad. [cite: 42]
+* **1. [cite_start]Evaluación de Integridad Mecánica** [cite: 44]
+  * [cite_start]Realizamos diagnósticos profundos para determinar la vida remanente y el estado operativo de sus instalaciones críticas. [cite: 45]
+  * [cite_start]Estudios de Inspección Inicial: Auditoría técnica integral antes de paradas de planta o puestas en marcha. [cite: 46]
+  * [cite_start]Medición de Espesores (Ultrasonido): Monitoreo de pérdida de material por corrosión o erosión en tuberías, recipientes a presión y tanques. [cite: 47, 48]
+  * [cite_start]Análisis de Verticalidad y Asentamiento: Control geométrico preciso en tanques de almacenamiento para prevenir fallas estructurales. [cite: 49]
+* **2. [cite_start]Ensayos No Destructivos (END)** [cite: 50]
+  * [cite_start]Detección de discontinuidades sin alterar la integridad de la pieza o equipo. [cite: 51]
+  * [cite_start]Líquidos Penetrantes y Partículas Magnéticas: Localización de grietas y defectos superficiales o subsuperficiales en soldaduras y componentes críticos. [cite: 52]
+  * [cite_start]Inspección Visual (VT): Evaluaciones directas e indirectas bajo estándares internacionales (API, ASME, AWS). [cite: 53]
+  * [cite_start]Pruebas de Hermeticidad: Verificación de fugas en sistemas de tuberías y sellos. [cite: 54]
+* **3. [cite_start]Ingeniería de Corrosión y Reportes Técnicos** [cite: 55]
+  * [cite_start]No solo entregamos datos, entregamos soluciones. [cite: 56]
+  * [cite_start]Mapeo de Corrosión: Identificación de zonas críticas para planificación de parches o reemplazos. [cite: 57]
+  * [cite_start]Informes de Certificación: Documentación técnica detallada para auditorías y cumplimiento legal. [cite: 58]
+* [cite_start]**¿Por qué confiar su inspección con nosotros?** [cite: 59]
+  * [cite_start]Precisión Milimétrica: Equipos de medición de última generación calibrados bajo normas internacionales. [cite: 60]
+  * [cite_start]Personal Certificado API: Inspectores con amplia experiencia en entornos industriales exigentes. [cite: 61]
+  * [cite_start]Optimización de Costos: Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos. [cite: 62]
+* [cite_start]**-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END`]** [cite: 43]
 
-### Modal Servicio 2: Integridad Mecánica y Mantenimiento de Equipos
-* **Texto Principal:** Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada para garantizar que sus equipos estáticos y rotativos operen bajo los más altos estándares de eficiencia y seguridad.
-* **1. Equipos Estáticos y de Transferencia de Calor:** Especialistas en la recuperación de la eficiencia térmica y la integridad estructural de unidades sometidas a altas presiones y temperaturas.
-    * Intercambiadores de Calor y Aeroenfriadores: Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas.
-    * Calderas y Hornos Reformadores: Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores.
-    * Recipientes a Presión: Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas.
-* **2. Equipos Rotativos y Sistemas de Bombeo:** Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético.
-    * Bombas Centrífugas: Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores.
-    * Motores Eléctricos: Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima.
-    * Balanceo Dinámico: Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos.
-* **3. Válvulas de Control y Seguridad:** Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa.
-    * Mantenimiento y Calibración: Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.
-    * Pruebas de Banco: Certificación de estanqueidad y disparo según normativas internacionales.
-* **Nuestro Valor Agregado en el Taller y Campo:**
-    * Ingeniería de Recuperación: No solo reparamos; analizamos la causa raíz de la falla para proponer mejoras que optimicen el rendimiento original del equipo.
-    * Gestión de Paradas de Planta (Turnarounds): Capacidad de movilización masiva de personal y herramientas para intervenciones en tiempos críticos.
-    * Estándares Internacionales: Ejecución basada en normas API, ASME y AWS.
-* **-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de 3 imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos`]**
+### [cite_start]Modal Servicio 2: Integridad Mecánica y Mantenimiento de Equipos [cite: 64, 65]
+* [cite_start]**Texto Principal:** Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. [cite: 67] [cite_start]En [Nombre de tu Empresa], combinamos ingeniería de detalle con ejecución especializada para garantizar que sus equipos estáticos y rotativos operen bajo los más altos estándares de eficiencia y seguridad. [cite: 68]
+* **1. [cite_start]Equipos Estáticos y de Transferencia de Calor** [cite: 70]
+  * [cite_start]Especialistas en la recuperación de la eficiencia térmica y la integridad estructural de unidades sometidas a altas presiones y temperaturas. [cite: 71]
+  * [cite_start]Intercambiadores de Calor y Aeroenfriadores: Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas. [cite: 72]
+  * [cite_start]Calderas y Hornos Reformadores: Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores. [cite: 73]
+  * [cite_start]Recipientes a Presión: Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas. [cite: 74]
+* **2. [cite_start]Equipos Rotativos y Sistemas de Bombeo** [cite: 76]
+  * [cite_start]Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético. [cite: 77]
+  * [cite_start]Bombas Centrífugas: Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores. [cite: 78]
+  * [cite_start]Motores Eléctricos: Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima. [cite: 79]
+  * [cite_start]Balanceo Dinámico: Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos. [cite: 80]
+* **3. [cite_start]Válvulas de Control y Seguridad** [cite: 81]
+  * [cite_start]Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa. [cite: 83]
+  * [cite_start]Mantenimiento y Calibración: Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores. [cite: 84]
+  * [cite_start]Pruebas de Banco: Certificación de estanqueidad y disparo según normativas internacionales. [cite: 85]
+* [cite_start]**Nuestro Valor Agregado en el Taller y Campo** [cite: 87]
+  * [cite_start]Ingeniería de Recuperación: No solo reparamos; analizamos la causa raíz de la falla para proponer mejoras que optimicen el rendimiento original del equipo. [cite: 88]
+  * [cite_start]Gestión de Paradas de Planta (Turnarounds): Capacidad de movilización masiva de personal y herramientas para intervenciones en tiempos críticos. [cite: 89]
+  * [cite_start]Estándares Internacionales: Ejecución basada en normas API, ASME y AWS, asegurando la trazabilidad de cada soldadura e intervención. [cite: 90]
+* [cite_start]**-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos`]** [cite: 69, 75, 82, 86]
 
-### Modal Servicio 3: Mantenimiento Mayor e Integridad de Tanques de Almacenamiento
-* **Texto Principal:** Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo, integrando ingeniería de precisión, soldadura calificada y tratamientos de superficie avanzados.
-* **1. Fase de Preparación y Diagnóstico Inicial:**
-    * Desgasificación y Limpieza Mecánica: Extracción de lodos y limpieza profunda.
-    * Inspección Bajo Norma API 653: Evaluación técnica mediante Ensayos No Destructivos (END).
-    * Estudios de Verticalidad y Asentamiento: Verificación geométrica.
-* **2. Reparación Estructural y Mecánica:**
-    * Sustitución de Láminas de Piso y Cuerpo: Reemplazo de planchas mediante soldaduras certificadas.
-    * Reparación de Techos (Fijos o Flotantes): Mantenimiento de pontones y sistemas de sellado.
-    * Intervención de Boquillas y Accesorios: Sustitución o refuerzo de "manways".
-* **3. Obra Civil y Contención:**
-    * Adecuación de Diques de Seguridad: Replanteo y reconstrucción de muros.
-    * Reparación de Anillos de Concreto: Inyección de grietas y nivelación.
-* **4. Tratamiento de Superficies y Recubrimientos:**
-    * Preparación de Superficie (Sandblasting): Limpieza abrasiva a metal blanco o comercial.
-    * Aplicación de Recubrimientos Epóxicos: Esquemas de pintura de alto desempeño.
-* **5. Pruebas Finales y Puesta en Marcha:**
-    * Pruebas Hidrostáticas, de Vacío (Vacuum Test) y Certificación de Aptitud.
-* **-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de 4 imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento`]**
+### [cite_start]Modal Servicio 3: Mantenimiento Mayor e Integridad de Tanques de Almacenamiento [cite: 92, 93]
+* [cite_start]**Texto Principal:** Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. [cite: 95] [cite_start]Ejecutamos proyectos de recuperación mayor de tanques de crudo, integrando ingeniería de precisión, soldadura calificada y tratamientos de superficie avanzados para asegurar la contención segura de sus hidrocarburos. [cite: 96]
+* [cite_start]**Fase de Preparación y Diagnóstico Inicial** [cite: 98]
+  * [cite_start]Desgasificación y Limpieza Mecánica: Extracción de lodos y limpieza profunda de paredes y piso para permitir una atmósfera segura de trabajo. [cite: 99, 100]
+  * [cite_start]Inspección Bajo Norma API 653: Evaluación técnica mediante Ensayos No Destructivos (END) para determinar el estado de las láminas, perfiles estructurales y cimentación. [cite: 101, 102, 103, 104]
+  * [cite_start]Estudios de Verticalidad y Asentamiento: Verificación geométrica para detectar deformaciones en el cuerpo del tanque o fallas en el anillo de concreto. [cite: 105]
+* **2. [cite_start]Reparación Estructural y Mecánica** [cite: 107]
+  * [cite_start]Sustitución de Láminas de Piso y Cuerpo: Reemplazo de planchas corroídas o dañadas mediante soldaduras certificadas. [cite: 108]
+  * [cite_start]Reparación de Techos (Fijos o Flotantes): Mantenimiento de pontones, sistemas de sellado de llanta y estructuras de soporte. [cite: 109]
+  * [cite_start]Intervención de Boquillas y Accesorios: Sustitución o refuerzo de "manways", conexiones de entrada/salida y sistemas de drenaje. [cite: 110]
+  * [cite_start]Mantenimiento de Sistemas de Protección: Reparación de escaleras, barandales y sistemas de puesta a tierra. [cite: 111]
+* **3. [cite_start]Obra Civil y Contención** [cite: 113]
+  * [cite_start]Adecuación de Diques de Seguridad: Replanteo y reconstrucción de muros de contención para cumplir con normativas ambientales. [cite: 114]
+  * [cite_start]Reparación de Anillos de Concreto: Inyección de grietas y nivelación de la base de apoyo del tanque. [cite: 115]
+* **4. [cite_start]Tratamiento de Superficies y Recubrimientos** [cite: 116]
+  * [cite_start]Preparación de Superficie (Sandblasting): Limpieza abrasiva a metal blanco o comercial según requerimiento técnico. [cite: 117]
+  * [cite_start]Aplicación de Recubrimientos Epóxicos: Esquemas de pintura de alto desempeño resistentes a la corrosión química y ambiental (liners internos y pintura externa). [cite: 118]
+* **5. [cite_start]Pruebas Finales y Puesta en Marcha** [cite: 120]
+  * [cite_start]Pruebas Hidrostáticas y de Estanqueidad: Verificación de la integridad estructural mediante llenado controlado. [cite: 121]
+  * [cite_start]Pruebas de Vacío (Vacuum Test): Inspección de las soldaduras de fondo para garantizar cero fugas. [cite: 122]
+  * [cite_start]Certificación de Aptitud para el Servicio: Entrega de dossier de calidad y reporte final de inspección post-reparación. [cite: 123]
+* [cite_start]**¿Por qué elegir nuestra solución en tanques?** [cite: 125]
+  * [cite_start]1. Cumplimiento Normativo: Todos nuestros procesos se rigen por los códigos API 653, API 650 y ASME IX. [cite: 126]
+  * [cite_start]2. Seguridad Industrial (HSE): Protocolos rigurosos para trabajos en espacios confinados y manejo de atmósferas explosivas. [cite: 127]
+  * [cite_start]3. Tecnología en Soldadura: Soldadores calificados y procedimientos (WPS/PQR) específicos para cada tipo de acero. [cite: 128]
+  * [cite_start]4. Enfoque en la Disponibilidad: Optimizamos los tiempos de ejecución para devolver el tanque a operación en el menor plazo posible. [cite: 129]
+* [cite_start]**-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento`]** [cite: 97, 106, 112, 119, 124]
 
-### Modal Servicio 4: Ingeniería Civil y Movimientos de Tierra
-* **Texto Principal:** Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada. Combinamos precisión técnica en replanteos con la potencia operativa necesaria para ejecutar movimientos de tierra, excavaciones y sistemas de contención que garantizan la estabilidad de sus activos.
-* **1. Movimientos de Tierra y Preparación de Sitios:**
-    * Excavaciones Masivas y de Precisión: Para fundaciones de equipos y sótanos industriales.
-    * Nivelación y Compactación de Suelos: Preparación de sub-bases.
-    * Terracerías y Vialismo Interno: Construcción de vías de acceso.
-* **2. Sistemas de Contención y Diques de Almacenamiento:**
-    * Replanteo y Construcción de Diques: Diseño y ejecución de muros de contención.
-    * Impermeabilización de Cubetos y Muros de Contención Estructurales.
-* **3. Perforaciones y Cimentaciones Especiales:**
-    * Perforaciones Industriales y Bases para Equipos Pesados.
-    * Canalizaciones Subterráneas: Perforación y zanjado.
-* **Capacidad Operativa:**
-    * Precisión Topográfica, Maquinaria Propia y Cumplimiento Ambiental.
-* **-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de 2 imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles`]**
+### [cite_start]Modal Servicio 4: Ingeniería Civil y Movimientos de Tierra [cite: 131]
+* **Texto Principal:** Toda gran obra comienza desde el suelo. [cite_start]En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada. [cite: 133] [cite_start]Combinamos precisión técnica en replanteos con la potencia operativa necesaria para ejecutar movimientos de tierra, excavaciones y sistemas de contención que garantizan la estabilidad de sus activos. [cite: 134]
+* [cite_start]**Nuestros Servicios de Infraestructura** [cite: 136]
+* **1. [cite_start]Movimientos de Tierra y Preparación de Sitios** [cite: 137]
+  * [cite_start]Ejecutamos la adecuación del terreno bajo estrictos controles de compactación y nivelación. [cite: 138]
+  * [cite_start]Excavaciones Masivas y de Precisión: Para fundaciones de equipos, zanjas de tuberías y sótanos industriales. [cite: 139]
+  * [cite_start]Nivelación y Compactación de Suelos: Preparación de sub-bases para pavimentos de alto tráfico y losas de cimentación. [cite: 140]
+  * [cite_start]Terracerías y Vialismo Interno: Construcción y mantenimiento de vías de acceso dentro de complejos industriales. [cite: 141]
+* **2. [cite_start]Sistemas de Contención y Diques de Almacenamiento** [cite: 142]
+  * [cite_start]Especialistas en la seguridad perimetral de parques de tanques, cumpliendo con normativas ambientales y de seguridad. [cite: 143]
+  * [cite_start]Replanteo y Construcción de Diques: Diseño y ejecución de muros de contención para tanques de almacenamiento de hidrocarburos y químicos. [cite: 144]
+  * [cite_start]Impermeabilización de Cubetos: Aplicación de barreras para evitar la infiltración de productos en caso de derrames. [cite: 145]
+  * [cite_start]Muros de Contención Estructurales: Soluciones en concreto armado o gaviones para estabilización de taludes. [cite: 146]
+* **3. [cite_start]Perforaciones y Cimentaciones Especiales** [cite: 147]
+  * [cite_start]Soluciones profundas para cargas críticas y estudios de suelo. [cite: 148]
+  * [cite_start]Perforaciones Industriales: Para la instalación de pilotes, sistemas de puesta a tierra o captación de agua. [cite: 149]
+  * [cite_start]Bases para Equipos Pesados: Construcción de pedestales y fundaciones de alta resistencia para bombas, compresores y turbinas. [cite: 151]
+  * [cite_start]Canalizaciones Subterráneas: Perforación y zanjado para redes eléctricas, de datos y sistemas contra incendio. [cite: 152]
+* [cite_start]**Capacidad Operativa y Garantía** [cite: 153]
+  * [cite_start]Precisión Topográfica: Utilizamos estaciones totales y equipos de última generación para replanteos exactos, evitando costosos errores de ubicación. [cite: 154]
+  * [cite_start]Maquinaria Propia: Contamos con una flota de equipo pesado (retroexcavadoras, compactadoras, motoniveladoras) lista para despliegue inmediato. [cite: 155]
+  * [cite_start]Cumplimiento Ambiental: Ejecutamos cada movimiento de tierra bajo protocolos de gestión de residuos y control de erosión. [cite: 156]
+* [cite_start]**-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles`]** [cite: 135]
 
-### Modal Servicio 5: Gestión de Procura y Suministros Globales
-* **Texto Principal:** Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente, conectando sus necesidades técnicas con los mejores fabricantes nacionales e internacionales. No solo entregamos materiales; entregamos disponibilidad operativa.
-* **1. Procura Internacional (Importación Especializada):**
-    * Equipos OEM, Logística "Puerta a Planta" y Búsqueda de Componentes Obsoletos.
-* **2. Procura Nacional y Suministros Locales:**
-    * Materiales de Construcción Industrial (ASTM/API), Insumos para Mantenimiento y Consumibles de Soldadura.
-* **3. Suministro de Equipos Críticos:**
-    * Válvulas de control, bombas industriales, motores y sistemas de control.
-* **¿Por qué elegir nuestra gestión de procura?**
-    * Validación Técnica por ingenieros, Trazabilidad Total (Dossier de Calidad) y Reducción de Lead Times.
-* **-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de 2 imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura`]**
+### [cite_start]Modal Servicio 5: Gestión de Procura y Suministros Globales [cite: 158]
+* [cite_start]**Texto Principal:** Sabemos que un componente crítico puede detener toda una línea de producción. [cite: 160] [cite_start]Optimizamos su cadena de suministro mediante una gestión de procura inteligente, conectando sus necesidades técnicas con los mejores fabricantes nacionales e internacionales. [cite: 161] [cite_start]No solo entregamos materiales; entregamos disponibilidad operativa. [cite: 162]
+* [cite_start]**Nuestras Líneas de Suministro** [cite: 164]
+* **1. [cite_start]Procura Internacional (Importación Especializada)** [cite: 165]
+  * [cite_start]Localizamos tecnología y componentes de difícil acceso en mercados globales. [cite: 166]
+  * [cite_start]Equipos OEM (Original Equipment Manufacturer): Gestión directa con fabricantes originales para garantizar repuestos genuinos. [cite: 167]
+  * [cite_start]Logística "Puerta a Planta": Nos encargamos de todo el proceso de importación, trámites aduanales y transporte hasta sus instalaciones. [cite: 168]
+  * [cite_start]Búsqueda de Componentes Obsoletos: Especialistas en hallar alternativas técnicas para equipos con tecnología descontinuada. [cite: 169]
+* **2. [cite_start]Procura Nacional y Suministros Locales** [cite: 170]
+  * [cite_start]Respuesta rápida para requerimientos inmediatos con proveedores certificados. [cite: 171]
+  * [cite_start]Materiales de Construcción Industrial: Tuberías (Piping), bridas, accesorios y aceros estructurales bajo normas ASTM/ΑΡΙ. [cite: 172]
+  * [cite_start]Insumos para Mantenimiento: Empacaduras, sellos mecánicos, rodamientos de alta precisión y lubricantes especializados. [cite: 173]
+  * [cite_start]Consumibles de Soldadura: Electrodos y aportes certificados para procesos críticos. [cite: 174]
+* **3. [cite_start]Suministro de Equipos Críticos** [cite: 175]
+  * [cite_start]Gestión de compra para activos mayores: [cite: 176]
+  * [cite_start]Válvulas de control y seguridad. [cite: 177]
+  * [cite_start]Bombas industriales y motores eléctricos de alta eficiencia. [cite: 178]
+  * [cite_start]Instrumentación de campo y sistemas de control. [cite: 179]
+* [cite_start]**¿Por qué elegir nuestra gestión de procura?** [cite: 180]
+  * [cite_start]Validación Técnica: A diferencia de una comercializadora común, nuestros ingenieros revisan cada hoja de datos (Data Sheet) para asegurar que lo que compramos es exactamente lo que su proceso necesita. [cite: 181]
+  * [cite_start]Trazabilidad Total: Entregamos cada suministro con su respectivo Dossier de Calidad, certificados de origen y reportes de pruebas de fábrica (Mill Test Reports). [cite: 182]
+  * [cite_start]Reducción de Lead Times: Optimizamos los tiempos de entrega mediante alianzas estratégicas con operadores logísticos globales. [cite: 183]
+* [cite_start]**-> [INSTRUCCIÓN PARA CURSOR: Insertar aquí un Grid de imágenes usando la URL: `https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura`]** [cite: 163]
 
 ## 4. Estilos y Estructura Técnica (Tailwind + Vanilla JS)
-1.  **Tarjetas (Grid Principal):** Crea un `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">`. Cada tarjeta debe tener un diseño limpio, sombra suave (`shadow-lg`), el color primario `#180099` al hacer hover y un botón distintivo.
-2.  **Modales/Drawers:** Utiliza un contenedor superpuesto (`fixed inset-0 bg-black bg-opacity-50 z-50`) oculto por defecto. El contenido debe tener fondo blanco, máximo ancho (`max-w-4xl`), scroll vertical y un botón claro de "Cerrar".
-3.  **Galerías de Imágenes (IMPORTANTE):** Al final del contenido de cada modal, crea un `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">` e inserta las etiquetas `<img>` apuntando a las URLs de `placehold.co` indicadas en los textos, asegurando que tengan `class="w-full h-auto rounded-lg shadow-md object-cover"`.
-4.  **Lógica JS:** Añade el script para manejar la apertura y cierre dinámico de estos modales.
+1. **Tarjetas (Grid Principal):** Crea un `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">`. [cite_start]Cada tarjeta debe tener un diseño limpio, sombra suave (`shadow-lg`), el color primario `#180099` [cite: 30] al hacer hover y un botón distintivo.
+2. **Modales/Drawers:** Utiliza un contenedor superpuesto (`fixed inset-0 bg-black bg-opacity-50 z-50`) oculto por defecto. El contenido debe tener fondo blanco, máximo ancho (`max-w-4xl`), scroll vertical y un botón claro de "Cerrar".
+3. [cite_start]**Galerías de Imágenes (IMPORTANTE):** Al final del contenido de cada modal, o donde se indique en los textos (ej. "GALERIA DE FOTOS" [cite: 43]), crea un `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">` e inserta las etiquetas `<img>` apuntando a las URLs de `placehold.co`, asegurando que tengan `class="w-full h-auto rounded-lg shadow-md object-cover"`.
+4. **Lógica JS:** Añade el script para manejar la apertura y cierre dinámico de estos modales.
