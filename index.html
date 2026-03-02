@@ -76,6 +76,7 @@
         .servicio-modal-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; border: none; background: #F9FAFB; color: #374151; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
         .servicio-modal-close:hover { background: #180099; color: white; }
         .servicio-modal-close:focus-visible { outline: 2px solid #180099; outline-offset: 2px; }
+        .servicio-modal-content .desglose-titulo { font-weight: 600; color: #374151; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -256,24 +257,24 @@
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-search-plus text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Inspección Técnica y END</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Metodologías avanzadas de inspección, ensayos no destructivos y certificación técnica.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Inspección Técnica y Ensayos No Destructivos (END)</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos.</p>
                     <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-cogs text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Equipos estáticos, rotativos, válvulas y gestión de paradas de planta.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento de Equipos</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada.</p>
                     <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-industry text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Tanques de Almacenamiento</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Recuperación mayor, API 653, reparación estructural y tratamientos de superficie.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo.</p>
                     <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
@@ -281,15 +282,15 @@
                         <i class="fas fa-hard-hat text-2xl text-primary" aria-hidden="true"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Ingeniería Civil y Movimientos de Tierra</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Excavaciones, contención, diques y cimentaciones especiales.</p>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada.</p>
                     <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
                     <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                         <i class="fas fa-truck-fast text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Procura y Suministros Globales</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Procura internacional, suministros locales y equipos críticos.</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Gestión de Procura y Suministros Globales</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente.</p>
                     <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                 </article>
             </div>
@@ -306,28 +307,28 @@
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Evaluación de Integridad Mecánica</h3>
                 <p class="text-gray-600 mb-4">Realizamos diagnósticos profundos para determinar la vida remanente y el estado operativo de sus instalaciones críticas.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Estudios de Inspección Inicial: Auditoría técnica integral antes de paradas de planta o puestas en marcha.</li>
-                    <li>Medición de Espesores (Ultrasonido): Monitoreo de pérdida de material por corrosión o erosión en tuberías, recipientes a presión y tanques.</li>
-                    <li>Análisis de Verticalidad y Asentamiento: Control geométrico preciso en tanques de almacenamiento para prevenir fallas estructurales.</li>
+                    <li><span class="desglose-titulo">Estudios de Inspección Inicial: </span>Auditoría técnica integral antes de paradas de planta o puestas en marcha.</li>
+                    <li><span class="desglose-titulo">Medición de Espesores (Ultrasonido): </span>Monitoreo de pérdida de material por corrosión o erosión en tuberías, recipientes a presión y tanques.</li>
+                    <li><span class="desglose-titulo">Análisis de Verticalidad y Asentamiento: </span>Control geométrico preciso en tanques de almacenamiento para prevenir fallas estructurales.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Ensayos No Destructivos (END)</h3>
                 <p class="text-gray-600 mb-4">Detección de discontinuidades sin alterar la integridad de la pieza o equipo.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Líquidos Penetrantes y Partículas Magnéticas: Localización de grietas y defectos superficiales o subsuperficiales en soldaduras y componentes críticos.</li>
-                    <li>Inspección Visual (VT): Evaluaciones directas e indirectas bajo estándares internacionales (API, ASME, AWS).</li>
-                    <li>Pruebas de Hermeticidad: Verificación de fugas en sistemas de tuberías y sellos.</li>
+                    <li><span class="desglose-titulo">Líquidos Penetrantes y Partículas Magnéticas: </span>Localización de grietas y defectos superficiales o subsuperficiales en soldaduras y componentes críticos.</li>
+                    <li><span class="desglose-titulo">Inspección Visual (VT): </span>Evaluaciones directas e indirectas bajo estándares internacionales (API, ASME, AWS).</li>
+                    <li><span class="desglose-titulo">Pruebas de Hermeticidad: </span>Verificación de fugas en sistemas de tuberías y sellos.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Ingeniería de Corrosión y Reportes Técnicos</h3>
                 <p class="text-gray-600 mb-4">No solo entregamos datos, entregamos soluciones.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Mapeo de Corrosión: Identificación de zonas críticas para planificación de parches o reemplazos.</li>
-                    <li>Informes de Certificación: Documentación técnica detallada para auditorías y cumplimiento legal.</li>
+                    <li><span class="desglose-titulo">Mapeo de Corrosión: </span>Identificación de zonas críticas para planificación de parches o reemplazos.</li>
+                    <li><span class="desglose-titulo">Informes de Certificación: </span>Documentación técnica detallada para auditorías y cumplimiento legal.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">¿Por qué confiar su inspección con nosotros?</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
-                    <li>Precisión Milimétrica: Equipos de medición de última generación calibrados bajo normas internacionales.</li>
-                    <li>Personal Certificado API: Inspectores con amplia experiencia en entornos industriales exigentes.</li>
-                    <li>Optimización de Costos: Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos.</li>
+                    <li><span class="desglose-titulo">Precisión Milimétrica: </span>Equipos de medición de última generación calibrados bajo normas internacionales.</li>
+                    <li><span class="desglose-titulo">Personal Certificado API: </span>Inspectores con amplia experiencia en entornos industriales exigentes.</li>
+                    <li><span class="desglose-titulo">Optimización de Costos: </span>Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos.</li>
                 </ul>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería END">
                     <img src="https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END" alt="Galería inspección y END 1" class="w-full h-auto rounded-lg shadow-md object-cover">
@@ -347,28 +348,28 @@
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Equipos Estáticos y de Transferencia de Calor</h3>
                 <p class="text-gray-600 mb-4">Especialistas en la recuperación de la eficiencia térmica y la integridad estructural de unidades sometidas a altas presiones y temperaturas.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Intercambiadores de Calor y Aeroenfriadores: Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas.</li>
-                    <li>Calderas y Hornos Reformadores: Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores.</li>
-                    <li>Recipientes a Presión: Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas.</li>
+                    <li><span class="desglose-titulo">Intercambiadores de Calor y Aeroenfriadores: </span>Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas.</li>
+                    <li><span class="desglose-titulo">Calderas y Hornos Reformadores: </span>Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores.</li>
+                    <li><span class="desglose-titulo">Recipientes a Presión: </span>Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Equipos Rotativos y Sistemas de Bombeo</h3>
                 <p class="text-gray-600 mb-4">Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Bombas Centrífugas: Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores.</li>
-                    <li>Motores Eléctricos: Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima.</li>
-                    <li>Balanceo Dinámico: Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos.</li>
+                    <li><span class="desglose-titulo">Bombas Centrífugas: </span>Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores.</li>
+                    <li><span class="desglose-titulo">Motores Eléctricos: </span>Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima.</li>
+                    <li><span class="desglose-titulo">Balanceo Dinámico: </span>Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Válvulas de Control y Seguridad</h3>
                 <p class="text-gray-600 mb-4">Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Mantenimiento y Calibración: Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.</li>
-                    <li>Pruebas de Banco: Certificación de estanqueidad y disparo según normativas internacionales.</li>
+                    <li><span class="desglose-titulo">Mantenimiento y Calibración: </span>Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.</li>
+                    <li><span class="desglose-titulo">Pruebas de Banco: </span>Certificación de estanqueidad y disparo según normativas internacionales.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Nuestro Valor Agregado en el Taller y Campo</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
-                    <li>Ingeniería de Recuperación: No solo reparamos; analizamos la causa raíz de la falla para proponer mejoras que optimicen el rendimiento original del equipo.</li>
-                    <li>Gestión de Paradas de Planta (Turnarounds): Capacidad de movilización masiva de personal y herramientas para intervenciones en tiempos críticos.</li>
-                    <li>Estándares Internacionales: Ejecución basada en normas API, ASME y AWS.</li>
+                    <li><span class="desglose-titulo">Ingeniería de Recuperación: </span>No solo reparamos; analizamos la causa raíz de la falla para proponer mejoras que optimicen el rendimiento original del equipo.</li>
+                    <li><span class="desglose-titulo">Gestión de Paradas de Planta (Turnarounds): </span>Capacidad de movilización masiva de personal y herramientas para intervenciones en tiempos críticos.</li>
+                    <li><span class="desglose-titulo">Estándares Internacionales: </span>Ejecución basada en normas API, ASME y AWS.</li>
                 </ul>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Mantenimiento Equipos">
                     <img src="https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos" alt="Mantenimiento de equipos 1" class="w-full h-auto rounded-lg shadow-md object-cover">
@@ -387,25 +388,25 @@
                 <p class="text-gray-600 mb-6 leading-relaxed">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo, integrando ingeniería de precisión, soldadura calificada y tratamientos de superficie avanzados.</p>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Fase de Preparación y Diagnóstico Inicial</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Desgasificación y Limpieza Mecánica: Extracción de lodos y limpieza profunda.</li>
-                    <li>Inspección Bajo Norma API 653: Evaluación técnica mediante Ensayos No Destructivos (END).</li>
-                    <li>Estudios de Verticalidad y Asentamiento: Verificación geométrica.</li>
+                    <li><span class="desglose-titulo">Desgasificación y Limpieza Mecánica: </span>Extracción de lodos y limpieza profunda.</li>
+                    <li><span class="desglose-titulo">Inspección Bajo Norma API 653: </span>Evaluación técnica mediante Ensayos No Destructivos (END).</li>
+                    <li><span class="desglose-titulo">Estudios de Verticalidad y Asentamiento: </span>Verificación geométrica.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Reparación Estructural y Mecánica</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Sustitución de Láminas de Piso y Cuerpo: Reemplazo de planchas mediante soldaduras certificadas.</li>
-                    <li>Reparación de Techos (Fijos o Flotantes): Mantenimiento de pontones y sistemas de sellado.</li>
-                    <li>Intervención de Boquillas y Accesorios: Sustitución o refuerzo de "manways".</li>
+                    <li><span class="desglose-titulo">Sustitución de Láminas de Piso y Cuerpo: </span>Reemplazo de planchas mediante soldaduras certificadas.</li>
+                    <li><span class="desglose-titulo">Reparación de Techos (Fijos o Flotantes): </span>Mantenimiento de pontones y sistemas de sellado.</li>
+                    <li><span class="desglose-titulo">Intervención de Boquillas y Accesorios: </span>Sustitución o refuerzo de "manways".</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Obra Civil y Contención</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Adecuación de Diques de Seguridad: Replanteo y reconstrucción de muros.</li>
-                    <li>Reparación de Anillos de Concreto: Inyección de grietas y nivelación.</li>
+                    <li><span class="desglose-titulo">Adecuación de Diques de Seguridad: </span>Replanteo y reconstrucción de muros.</li>
+                    <li><span class="desglose-titulo">Reparación de Anillos de Concreto: </span>Inyección de grietas y nivelación.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">4. Tratamiento de Superficies y Recubrimientos</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Preparación de Superficie (Sandblasting): Limpieza abrasiva a metal blanco o comercial.</li>
-                    <li>Aplicación de Recubrimientos Epóxicos: Esquemas de pintura de alto desempeño.</li>
+                    <li><span class="desglose-titulo">Preparación de Superficie (Sandblasting): </span>Limpieza abrasiva a metal blanco o comercial.</li>
+                    <li><span class="desglose-titulo">Aplicación de Recubrimientos Epóxicos: </span>Esquemas de pintura de alto desempeño.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">5. Pruebas Finales y Puesta en Marcha</h3>
                 <p class="text-gray-600 mb-8">Pruebas Hidrostáticas, de Vacío (Vacuum Test) y Certificación de Aptitud.</p>
@@ -427,19 +428,19 @@
                 <p class="text-gray-600 mb-6 leading-relaxed">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada. Combinamos precisión técnica en replanteos con la potencia operativa necesaria para ejecutar movimientos de tierra, excavaciones y sistemas de contención que garantizan la estabilidad de sus activos.</p>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Movimientos de Tierra y Preparación de Sitios</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Excavaciones Masivas y de Precisión: Para fundaciones de equipos y sótanos industriales.</li>
-                    <li>Nivelación y Compactación de Suelos: Preparación de sub-bases.</li>
-                    <li>Terracerías y Vialismo Interno: Construcción de vías de acceso.</li>
+                    <li><span class="desglose-titulo">Excavaciones Masivas y de Precisión: </span>Para fundaciones de equipos y sótanos industriales.</li>
+                    <li><span class="desglose-titulo">Nivelación y Compactación de Suelos: </span>Preparación de sub-bases.</li>
+                    <li><span class="desglose-titulo">Terracerías y Vialismo Interno: </span>Construcción de vías de acceso.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Sistemas de Contención y Diques de Almacenamiento</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
-                    <li>Replanteo y Construcción de Diques: Diseño y ejecución de muros de contención.</li>
+                    <li><span class="desglose-titulo">Replanteo y Construcción de Diques: </span>Diseño y ejecución de muros de contención.</li>
                     <li>Impermeabilización de Cubetos y Muros de Contención Estructurales.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Perforaciones y Cimentaciones Especiales</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
                     <li>Perforaciones Industriales y Bases para Equipos Pesados.</li>
-                    <li>Canalizaciones Subterráneas: Perforación y zanjado.</li>
+                    <li><span class="desglose-titulo">Canalizaciones Subterráneas: </span>Perforación y zanjado.</li>
                 </ul>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Capacidad Operativa</h3>
                 <p class="text-gray-600 mb-8">Precisión Topográfica, Maquinaria Propia y Cumplimiento Ambiental.</p>
