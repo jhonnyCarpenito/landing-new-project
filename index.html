@@ -63,14 +63,15 @@
         .gallery-swiper-pagination { position: static !important; margin-top: 1rem; }
         .gallery-swiper-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
         .gallery-swiper-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
-        .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 40; width: 3.5rem; height: 3.5rem; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
+        .gallery-swiper { width: 100%; max-width: 100%; overflow: hidden !important; }
+        .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9998; width: 3.5rem; height: 3.5rem; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); color: white; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
     
     <!-- ========== NAVBAR (Sticky & Glassmorphism) ========== -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-nav bg-white/80 border-b border-secondary/30 transition-all duration-300">
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-[9999] glass-nav bg-white/80 border-b border-secondary/30 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="#inicio" class="flex items-center">
@@ -100,6 +101,7 @@
         </div>
     </nav>
 
+    <main class="overflow-x-hidden w-full">
     <!-- ========== HERO SECTION ========== -->
     <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0">
@@ -128,7 +130,7 @@
     <!-- ========== QUIÉNES SOMOS (Especialización) ========== -->
     <section id="especializacion" class="py-20 lg:py-28 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
                 <div>
                     <span class="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4" data-aos="fade-right" data-aos-duration="600">Tu Socio en Ingeniería y Mantenimiento Industrial</span>
                     <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6" data-aos="fade-right" data-aos-duration="600" data-aos-delay="100">Especialización Industrial</h2>
@@ -136,10 +138,10 @@
                         Somos una empresa dedicada exclusivamente a servicios de ingeniería, mantenimiento y reparación de plantas y equipos industriales, con un enfoque claro en la excelencia operativa.
                     </p>
                 </div>
-                <div class="relative" data-aos="fade-left" data-aos-duration="600">
-                    <div class="flex items-center gap-3 lg:gap-4">
-                        <div class="swiper-button-prev gallery-swiper-nav" id="gallery-prev" aria-label="Anterior"></div>
-                        <div class="swiper gallery-swiper flex-1 rounded-2xl overflow-hidden shadow-2xl min-w-0">
+                <div class="relative w-full min-w-0" data-aos="fade-left" data-aos-duration="600">
+                    <div class="flex items-center gap-3 lg:gap-4 w-full min-w-0">
+                        <div class="swiper-button-prev gallery-swiper-nav hidden md:flex" id="gallery-prev" aria-label="Anterior"></div>
+                        <div class="swiper gallery-swiper flex-1 w-full min-w-0 rounded-2xl overflow-hidden shadow-2xl">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <a href="FOTOS/IMG_0169.JPG" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Especialización Industrial">
@@ -191,7 +193,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-button-next gallery-swiper-nav" id="gallery-next" aria-label="Siguiente"></div>
+                        <div class="swiper-button-next gallery-swiper-nav hidden md:flex" id="gallery-next" aria-label="Siguiente"></div>
                     </div>
                     <div class="swiper-pagination gallery-swiper-pagination flex justify-center" id="gallery-pagination"></div>
                     <div class="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-primary rounded-lg opacity-20 pointer-events-none"></div>
@@ -322,6 +324,7 @@
             </div>
         </div>
     </footer>
+    </main>
 
     <!-- Botón flotante WhatsApp -->
     <a href="https://wa.me/584248881946" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
