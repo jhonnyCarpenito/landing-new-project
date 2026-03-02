@@ -66,15 +66,16 @@
         .gallery-swiper { width: 100%; max-width: 100%; overflow: hidden !important; }
         .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9998; width: 3.5rem; height: 3.5rem; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); color: white; }
-        .servicios-tab { transition: all 0.2s ease; }
-        .servicios-tab:hover { background-color: rgba(24, 0, 153, 0.08); }
-        .servicios-tab[aria-selected="true"] { background-color: #180099; color: white; border-color: #180099; }
-        .servicios-panel { display: none; animation: servicios-fade 0.3s ease; }
-        .servicios-panel.is-active { display: block; }
-        @keyframes servicios-fade { from { opacity: 0; } to { opacity: 1; } }
-        .servicios-accordion-btn { width: 100%; text-align: left; }
-        .servicios-tab[aria-selected="true"] .accordion-icon { transform: rotate(180deg); }
-        .servicios-tab:focus-visible { outline: 2px solid #180099; outline-offset: 2px; }
+        .servicio-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .servicio-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(24, 0, 153, 0.2); border-color: rgba(24, 0, 153, 0.3); }
+        .servicio-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10050; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        .servicio-modal-backdrop.is-open { opacity: 1; visibility: visible; }
+        .servicio-modal-box { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.95); max-width: 56rem; width: calc(100% - 2rem); max-height: calc(100vh - 2rem); background: white; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); z-index: 10051; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity 0.3s, transform 0.3s, visibility 0.3s; }
+        .servicio-modal-backdrop.is-open .servicio-modal-box { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
+        .servicio-modal-content { overflow-y: auto; max-height: calc(100vh - 6rem); padding: 1.5rem; }
+        .servicio-modal-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; border: none; background: #F9FAFB; color: #374151; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+        .servicio-modal-close:hover { background: #180099; color: white; }
+        .servicio-modal-close:focus-visible { outline: 2px solid #180099; outline-offset: 2px; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -240,140 +241,245 @@
     </section>
 
     <!-- ========== SERVICIOS ========== -->
-    <section id="servicios" class="py-20 lg:py-28 bg-white" aria-labelledby="servicios-title">
+    <section id="servicios" class="py-20 lg:py-28 bg-surface" aria-labelledby="servicios-title">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <header class="text-center mb-12 lg:mb-16">
-                <h2 id="servicios-title" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up" data-aos-duration="600">Servicios</h2>
-                <p class="text-xl text-primary font-semibold mb-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Ingeniería 360° para la Continuidad de su Industria.</p>
+                <h2 id="servicios-title" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-aos="fade-up" data-aos-duration="600">SERVICIOS</h2>
+                <p class="text-xl text-primary font-semibold mb-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Ingeniería 360° para la Continuidad de su Industria</p>
                 <p class="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     En New Proyect, integramos capacidades críticas para garantizar la eficiencia de sus activos. Desde la intervención especializada de equipos estáticos y rotativos, hasta obras civiles de envergadura y gestión de procura internacional, ofrecemos un respaldo técnico total. Nuestro compromiso es transformar el mantenimiento en una ventaja competitiva para su operación.
                 </p>
             </header>
 
-            <div class="servicios-wrapper">
-                <!-- Tabs: Desktop horizontal / Mobile accordion -->
-                <div role="tablist" aria-label="Lista de servicios" class="flex flex-col lg:flex-row lg:flex-wrap gap-2 mb-8 lg:mb-10">
-                    <button type="button" role="tab" id="servicio-tab-1" aria-selected="true" aria-controls="servicio-panel-1" class="servicios-tab servicios-accordion-btn flex items-center justify-between lg:justify-center px-4 py-4 rounded-xl border-2 border-secondary/40 text-left font-semibold text-gray-800 lg:flex-1 lg:min-w-0" tabindex="0">
-                        <span>Inspección y END</span>
-                        <i class="accordion-icon fas fa-chevron-down lg:hidden ml-2 transition-transform" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" role="tab" id="servicio-tab-2" aria-selected="false" aria-controls="servicio-panel-2" class="servicios-tab servicios-accordion-btn flex items-center justify-between lg:justify-center px-4 py-4 rounded-xl border-2 border-secondary/40 text-left font-semibold text-gray-800 lg:flex-1 lg:min-w-0" tabindex="-1">
-                        <span>Integridad Mecánica</span>
-                        <i class="accordion-icon fas fa-chevron-down lg:hidden ml-2 transition-transform" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" role="tab" id="servicio-tab-3" aria-selected="false" aria-controls="servicio-panel-3" class="servicios-tab servicios-accordion-btn flex items-center justify-between lg:justify-center px-4 py-4 rounded-xl border-2 border-secondary/40 text-left font-semibold text-gray-800 lg:flex-1 lg:min-w-0" tabindex="-1">
-                        <span>Tanques de Almacenamiento</span>
-                        <i class="accordion-icon fas fa-chevron-down lg:hidden ml-2 transition-transform" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" role="tab" id="servicio-tab-4" aria-selected="false" aria-controls="servicio-panel-4" class="servicios-tab servicios-accordion-btn flex items-center justify-between lg:justify-center px-4 py-4 rounded-xl border-2 border-secondary/40 text-left font-semibold text-gray-800 lg:flex-1 lg:min-w-0" tabindex="-1">
-                        <span>Ingeniería Civil</span>
-                        <i class="accordion-icon fas fa-chevron-down lg:hidden ml-2 transition-transform" aria-hidden="true"></i>
-                    </button>
-                    <button type="button" role="tab" id="servicio-tab-5" aria-selected="false" aria-controls="servicio-panel-5" class="servicios-tab servicios-accordion-btn flex items-center justify-between lg:justify-center px-4 py-4 rounded-xl border-2 border-secondary/40 text-left font-semibold text-gray-800 lg:flex-1 lg:min-w-0" tabindex="-1">
-                        <span>Procura y Suministros</span>
-                        <i class="accordion-icon fas fa-chevron-down lg:hidden ml-2 transition-transform" aria-hidden="true"></i>
-                    </button>
-                </div>
-
-                <!-- Panels -->
-                <div id="servicio-panel-1" role="tabpanel" aria-labelledby="servicio-tab-1" class="servicios-panel is-active">
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Inspección Técnica y Ensayos No Destructivos (END)</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">La prevención es la base de la rentabilidad. Aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos, identificar riesgos antes de que se conviertan en fallas y garantizar el cumplimiento de las normativas internacionales de seguridad.</p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Evaluación de Integridad Mecánica:</strong> Estudios iniciales, medición de espesores (ultrasonido) y análisis de verticalidad en tanques.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Ensayos No Destructivos (END):</strong> Líquidos penetrantes, partículas magnéticas, inspección visual (VT) y pruebas de hermeticidad.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Ingeniería de Corrosión y Reportes:</strong> Mapeo de corrosión e informes de certificación técnica.</span></li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4" aria-label="Galería del servicio">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Inspeccion+END+1" alt="Inspección técnica y ensayos no destructivos" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Inspeccion+END+2" alt="Inspección de equipos industriales" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Inspeccion+END+3" alt="Ensayos no destructivos" class="w-full aspect-[4/3] object-cover rounded-xl col-span-2">
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
+                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-search-plus text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                </div>
-
-                <div id="servicio-panel-2" role="tabpanel" aria-labelledby="servicio-tab-2" class="servicios-panel" hidden>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Integridad Mecánica y Mantenimiento de Equipos</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. Combinamos ingeniería de detalle con ejecución especializada para garantizar que sus equipos estáticos y rotativos operen bajo los más altos estándares de eficiencia y seguridad.</p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Equipos Estáticos y de Transferencia de Calor:</strong> Intercambiadores, calderas, hornos reformadores y recipientes a presión (código ASME).</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Equipos Rotativos y Sistemas de Bombeo:</strong> Bombas centrífugas, overhaul de motores eléctricos y balanceo dinámico.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Válvulas de Control y Seguridad:</strong> Mantenimiento, calibración y pruebas de banco.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Valor Agregado:</strong> Gestión de paradas de planta (Turnarounds) y ejecución basada en normas API, ASME y AWS.</span></li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4" aria-label="Galería del servicio">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Integridad+Mecanica+1" alt="Mantenimiento de equipos estáticos" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Integridad+Mecanica+2" alt="Equipos rotativos" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Integridad+Mecanica+3" alt="Sistemas de bombeo" class="w-full aspect-[4/3] object-cover rounded-xl col-span-2">
-                        </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Inspección Técnica y END</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Metodologías avanzadas de inspección, ensayos no destructivos y certificación técnica.</p>
+                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                </article>
+                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                </div>
-
-                <div id="servicio-panel-3" role="tabpanel" aria-labelledby="servicio-tab-3" class="servicios-panel" hidden>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo, integrando ingeniería de precisión, soldadura calificada y tratamientos de superficie avanzados.</p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Fase de Preparación:</strong> Desgasificación, limpieza mecánica e inspección bajo Norma API 653.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Reparación Estructural y Mecánica:</strong> Sustitución de láminas de piso/cuerpo y reparación de techos (fijos o flotantes).</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Obra Civil y Tratamientos:</strong> Adecuación de diques, reparación de anillos de concreto, sandblasting y recubrimientos epóxicos.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Pruebas Finales:</strong> Pruebas hidrostáticas, vacuum test y certificación de aptitud.</span></li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4" aria-label="Galería del servicio">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Tanques+Almacenamiento+1" alt="Mantenimiento de tanques de almacenamiento" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Tanques+Almacenamiento+2" alt="Recuperación de tanques" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Tanques+Almacenamiento+3" alt="Integridad de tanques" class="w-full aspect-[4/3] object-cover rounded-xl col-span-2">
-                        </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Equipos estáticos, rotativos, válvulas y gestión de paradas de planta.</p>
+                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                </article>
+                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-industry text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                </div>
-
-                <div id="servicio-panel-4" role="tabpanel" aria-labelledby="servicio-tab-4" class="servicios-panel" hidden>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Ingeniería Civil y Movimientos de Tierra</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada. Combinamos precisión técnica en replanteos con la potencia operativa necesaria para ejecutar movimientos de tierra, excavaciones y sistemas de contención.</p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Movimientos de Tierra:</strong> Excavaciones masivas, nivelación, compactación de suelos y vialidad interna.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Sistemas de Contención:</strong> Replanteo y construcción de diques, impermeabilización de cubetos y muros estructurales.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Cimentaciones Especiales:</strong> Perforaciones industriales, bases para equipos pesados y canalizaciones subterráneas.</span></li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4" aria-label="Galería del servicio">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Ingenieria+Civil+1" alt="Movimientos de tierra" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Ingenieria+Civil+2" alt="Sistemas de contención" class="w-full aspect-[4/3] object-cover rounded-xl">
-                        </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Tanques de Almacenamiento</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Recuperación mayor, API 653, reparación estructural y tratamientos de superficie.</p>
+                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                </article>
+                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-hard-hat text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                </div>
-
-                <div id="servicio-panel-5" role="tabpanel" aria-labelledby="servicio-tab-5" class="servicios-panel" hidden>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-                        <div>
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">Gestión de Procura y Suministros Globales</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente, conectando sus necesidades técnicas con los mejores fabricantes nacionales e internacionales. No solo entregamos materiales; entregamos disponibilidad operativa.</p>
-                            <ul class="space-y-3 text-gray-600">
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Procura Internacional:</strong> Equipos OEM, logística "Puerta a Planta" y búsqueda de componentes obsoletos.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Suministros Locales:</strong> Materiales de construcción industrial (normas ASTM/API), insumos de mantenimiento y consumibles de soldadura.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Equipos Críticos:</strong> Válvulas de seguridad, bombas industriales e instrumentación de campo.</span></li>
-                                <li class="flex items-start gap-2"><i class="fas fa-check text-primary mt-1 flex-shrink-0" aria-hidden="true"></i><span><strong>Ventaja:</strong> Validación técnica por ingenieros, trazabilidad total y reducción de Lead Times.</span></li>
-                            </ul>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4" aria-label="Galería del servicio">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Procura+Suministros+1" alt="Gestión de procura internacional" class="w-full aspect-[4/3] object-cover rounded-xl">
-                            <img src="https://placehold.co/800x600/180099/FFFFFF?text=Procura+Suministros+2" alt="Suministros industriales" class="w-full aspect-[4/3] object-cover rounded-xl">
-                        </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ingeniería Civil y Movimientos de Tierra</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Excavaciones, contención, diques y cimentaciones especiales.</p>
+                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                </article>
+                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                        <i class="fas fa-truck-fast text-2xl text-primary" aria-hidden="true"></i>
                     </div>
-                </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Procura y Suministros Globales</h3>
+                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Procura internacional, suministros locales y equipos críticos.</p>
+                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                </article>
             </div>
         </div>
     </section>
+
+    <!-- Modales Servicios (contenido completo + galerías) -->
+    <div id="modal-servicio-1" class="servicio-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-servicio-1-title" aria-hidden="true">
+        <div class="servicio-modal-box" role="document">
+            <button type="button" class="servicio-modal-close" data-servicio-close aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div class="servicio-modal-content pt-12">
+                <h2 id="modal-servicio-1-title" class="text-2xl font-bold text-gray-900 mb-6">Inspección Técnica y Ensayos No Destructivos (END)</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos, identificar riesgos antes de que se conviertan en fallas y garantizar el cumplimiento de las normativas internacionales de seguridad.</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Evaluación de Integridad Mecánica</h3>
+                <p class="text-gray-600 mb-4">Realizamos diagnósticos profundos para determinar la vida remanente y el estado operativo de sus instalaciones críticas.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Estudios de Inspección Inicial: Auditoría técnica integral antes de paradas de planta o puestas en marcha.</li>
+                    <li>Medición de Espesores (Ultrasonido): Monitoreo de pérdida de material por corrosión o erosión en tuberías, recipientes a presión y tanques.</li>
+                    <li>Análisis de Verticalidad y Asentamiento: Control geométrico preciso en tanques de almacenamiento para prevenir fallas estructurales.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Ensayos No Destructivos (END)</h3>
+                <p class="text-gray-600 mb-4">Detección de discontinuidades sin alterar la integridad de la pieza o equipo.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Líquidos Penetrantes y Partículas Magnéticas: Localización de grietas y defectos superficiales o subsuperficiales en soldaduras y componentes críticos.</li>
+                    <li>Inspección Visual (VT): Evaluaciones directas e indirectas bajo estándares internacionales (API, ASME, AWS).</li>
+                    <li>Pruebas de Hermeticidad: Verificación de fugas en sistemas de tuberías y sellos.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Ingeniería de Corrosión y Reportes Técnicos</h3>
+                <p class="text-gray-600 mb-4">No solo entregamos datos, entregamos soluciones.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Mapeo de Corrosión: Identificación de zonas críticas para planificación de parches o reemplazos.</li>
+                    <li>Informes de Certificación: Documentación técnica detallada para auditorías y cumplimiento legal.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">¿Por qué confiar su inspección con nosotros?</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
+                    <li>Precisión Milimétrica: Equipos de medición de última generación calibrados bajo normas internacionales.</li>
+                    <li>Personal Certificado API: Inspectores con amplia experiencia en entornos industriales exigentes.</li>
+                    <li>Optimización de Costos: Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos.</li>
+                </ul>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería END">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END" alt="Galería inspección y END 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END" alt="Galería inspección y END 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Galeria+END" alt="Galería inspección y END 3" class="w-full h-auto rounded-lg shadow-md object-cover sm:col-span-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-servicio-2" class="servicio-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-servicio-2-title" aria-hidden="true">
+        <div class="servicio-modal-box" role="document">
+            <button type="button" class="servicio-modal-close" data-servicio-close aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div class="servicio-modal-content pt-12">
+                <h2 id="modal-servicio-2-title" class="text-2xl font-bold text-gray-900 mb-6">Integridad Mecánica y Mantenimiento de Equipos</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada para garantizar que sus equipos estáticos y rotativos operen bajo los más altos estándares de eficiencia y seguridad.</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Equipos Estáticos y de Transferencia de Calor</h3>
+                <p class="text-gray-600 mb-4">Especialistas en la recuperación de la eficiencia térmica y la integridad estructural de unidades sometidas a altas presiones y temperaturas.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Intercambiadores de Calor y Aeroenfriadores: Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas.</li>
+                    <li>Calderas y Hornos Reformadores: Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores.</li>
+                    <li>Recipientes a Presión: Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Equipos Rotativos y Sistemas de Bombeo</h3>
+                <p class="text-gray-600 mb-4">Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Bombas Centrífugas: Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores.</li>
+                    <li>Motores Eléctricos: Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima.</li>
+                    <li>Balanceo Dinámico: Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Válvulas de Control y Seguridad</h3>
+                <p class="text-gray-600 mb-4">Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Mantenimiento y Calibración: Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.</li>
+                    <li>Pruebas de Banco: Certificación de estanqueidad y disparo según normativas internacionales.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Nuestro Valor Agregado en el Taller y Campo</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
+                    <li>Ingeniería de Recuperación: No solo reparamos; analizamos la causa raíz de la falla para proponer mejoras que optimicen el rendimiento original del equipo.</li>
+                    <li>Gestión de Paradas de Planta (Turnarounds): Capacidad de movilización masiva de personal y herramientas para intervenciones en tiempos críticos.</li>
+                    <li>Estándares Internacionales: Ejecución basada en normas API, ASME y AWS.</li>
+                </ul>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Mantenimiento Equipos">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos" alt="Mantenimiento de equipos 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos" alt="Mantenimiento de equipos 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Mantenimiento+Equipos" alt="Mantenimiento de equipos 3" class="w-full h-auto rounded-lg shadow-md object-cover sm:col-span-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-servicio-3" class="servicio-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-servicio-3-title" aria-hidden="true">
+        <div class="servicio-modal-box" role="document">
+            <button type="button" class="servicio-modal-close" data-servicio-close aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div class="servicio-modal-content pt-12">
+                <h2 id="modal-servicio-3-title" class="text-2xl font-bold text-gray-900 mb-6">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo, integrando ingeniería de precisión, soldadura calificada y tratamientos de superficie avanzados.</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Fase de Preparación y Diagnóstico Inicial</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Desgasificación y Limpieza Mecánica: Extracción de lodos y limpieza profunda.</li>
+                    <li>Inspección Bajo Norma API 653: Evaluación técnica mediante Ensayos No Destructivos (END).</li>
+                    <li>Estudios de Verticalidad y Asentamiento: Verificación geométrica.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Reparación Estructural y Mecánica</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Sustitución de Láminas de Piso y Cuerpo: Reemplazo de planchas mediante soldaduras certificadas.</li>
+                    <li>Reparación de Techos (Fijos o Flotantes): Mantenimiento de pontones y sistemas de sellado.</li>
+                    <li>Intervención de Boquillas y Accesorios: Sustitución o refuerzo de "manways".</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Obra Civil y Contención</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Adecuación de Diques de Seguridad: Replanteo y reconstrucción de muros.</li>
+                    <li>Reparación de Anillos de Concreto: Inyección de grietas y nivelación.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">4. Tratamiento de Superficies y Recubrimientos</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Preparación de Superficie (Sandblasting): Limpieza abrasiva a metal blanco o comercial.</li>
+                    <li>Aplicación de Recubrimientos Epóxicos: Esquemas de pintura de alto desempeño.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">5. Pruebas Finales y Puesta en Marcha</h3>
+                <p class="text-gray-600 mb-8">Pruebas Hidrostáticas, de Vacío (Vacuum Test) y Certificación de Aptitud.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Tanques">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento" alt="Tanques de almacenamiento 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento" alt="Tanques de almacenamiento 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento" alt="Tanques de almacenamiento 3" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Tanques+Almacenamiento" alt="Tanques de almacenamiento 4" class="w-full h-auto rounded-lg shadow-md object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-servicio-4" class="servicio-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-servicio-4-title" aria-hidden="true">
+        <div class="servicio-modal-box" role="document">
+            <button type="button" class="servicio-modal-close" data-servicio-close aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div class="servicio-modal-content pt-12">
+                <h2 id="modal-servicio-4-title" class="text-2xl font-bold text-gray-900 mb-6">Ingeniería Civil y Movimientos de Tierra</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada. Combinamos precisión técnica en replanteos con la potencia operativa necesaria para ejecutar movimientos de tierra, excavaciones y sistemas de contención que garantizan la estabilidad de sus activos.</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Movimientos de Tierra y Preparación de Sitios</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Excavaciones Masivas y de Precisión: Para fundaciones de equipos y sótanos industriales.</li>
+                    <li>Nivelación y Compactación de Suelos: Preparación de sub-bases.</li>
+                    <li>Terracerías y Vialismo Interno: Construcción de vías de acceso.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Sistemas de Contención y Diques de Almacenamiento</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Replanteo y Construcción de Diques: Diseño y ejecución de muros de contención.</li>
+                    <li>Impermeabilización de Cubetos y Muros de Contención Estructurales.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Perforaciones y Cimentaciones Especiales</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Perforaciones Industriales y Bases para Equipos Pesados.</li>
+                    <li>Canalizaciones Subterráneas: Perforación y zanjado.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Capacidad Operativa</h3>
+                <p class="text-gray-600 mb-8">Precisión Topográfica, Maquinaria Propia y Cumplimiento Ambiental.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Obras Civiles">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles" alt="Obras civiles 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles" alt="Obras civiles 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-servicio-5" class="servicio-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-servicio-5-title" aria-hidden="true">
+        <div class="servicio-modal-box" role="document">
+            <button type="button" class="servicio-modal-close" data-servicio-close aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
+            <div class="servicio-modal-content pt-12">
+                <h2 id="modal-servicio-5-title" class="text-2xl font-bold text-gray-900 mb-6">Gestión de Procura y Suministros Globales</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente, conectando sus necesidades técnicas con los mejores fabricantes nacionales e internacionales. No solo entregamos materiales; entregamos disponibilidad operativa.</p>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Procura Internacional (Importación Especializada)</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Equipos OEM, Logística "Puerta a Planta" y Búsqueda de Componentes Obsoletos.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Procura Nacional y Suministros Locales</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Materiales de Construcción Industrial (ASTM/API), Insumos para Mantenimiento y Consumibles de Soldadura.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Suministro de Equipos Críticos</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-6 ml-2">
+                    <li>Válvulas de control, bombas industriales, motores y sistemas de control.</li>
+                </ul>
+                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">¿Por qué elegir nuestra gestión de procura?</h3>
+                <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
+                    <li>Validación Técnica por ingenieros, Trazabilidad Total (Dossier de Calidad) y Reducción de Lead Times.</li>
+                </ul>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Gestión Procura">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========== NUESTRA FILOSOFÍA (Misión y Visión) ========== -->
     <section id="filosofia" class="py-20 lg:py-28 bg-primary">
@@ -530,38 +636,56 @@
             lastScroll = currentScroll;
         });
 
-        // Servicios Tabs - Accesible con teclado y ARIA
+        // Servicios Modales - Apertura/cierre y accesibilidad
         (function() {
-            const tabIds = ['servicio-tab-1','servicio-tab-2','servicio-tab-3','servicio-tab-4','servicio-tab-5'];
-            const panelIds = ['servicio-panel-1','servicio-panel-2','servicio-panel-3','servicio-panel-4','servicio-panel-5'];
-            
-            function activateTab(index) {
-                tabIds.forEach((id, i) => {
-                    const tab = document.getElementById(id);
-                    const panel = document.getElementById(panelIds[i]);
-                    if (!tab || !panel) return;
-                    const isActive = i === index;
-                    tab.setAttribute('aria-selected', isActive);
-                    tab.setAttribute('tabindex', isActive ? 0 : -1);
-                    panel.classList.toggle('is-active', isActive);
-                    panel.hidden = !isActive;
-                    if (isActive) tab.focus({ preventScroll: true });
-                });
+            const openButtons = document.querySelectorAll('[data-servicio-modal]');
+            const closeButtons = document.querySelectorAll('[data-servicio-close]');
+            let lastFocused = null;
+
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (!modal) return;
+                lastFocused = document.activeElement;
+                modal.classList.add('is-open');
+                modal.setAttribute('aria-hidden', 'false');
+                const trigger = document.querySelector('[data-servicio-modal="' + id + '"]');
+                if (trigger) trigger.setAttribute('aria-expanded', 'true');
+                const closeBtn = modal.querySelector('[data-servicio-close]');
+                if (closeBtn) closeBtn.focus();
+                document.body.style.overflow = 'hidden';
+                modal.addEventListener('keydown', trapEscape);
             }
-            
-            tabIds.forEach((id, index) => {
-                const tab = document.getElementById(id);
-                if (!tab) return;
-                tab.addEventListener('click', () => activateTab(index));
-                tab.addEventListener('keydown', (e) => {
-                    let newIndex;
-                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') newIndex = Math.min(index + 1, 4);
-                    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') newIndex = Math.max(index - 1, 0);
-                    else if (e.key === 'Home') newIndex = 0;
-                    else if (e.key === 'End') newIndex = 4;
-                    else return;
-                    e.preventDefault();
-                    activateTab(newIndex);
+
+            function closeModal(modal) {
+                if (!modal || !modal.classList.contains('is-open')) return;
+                modal.classList.remove('is-open');
+                modal.setAttribute('aria-hidden', 'true');
+                const id = modal.id;
+                const trigger = document.querySelector('[data-servicio-modal="' + id + '"]');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+                modal.removeEventListener('keydown', trapEscape);
+                if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
+            }
+
+            function trapEscape(e) {
+                if (e.key === 'Escape') {
+                    const modal = e.target.closest('.servicio-modal-backdrop');
+                    if (modal) closeModal(modal);
+                }
+            }
+
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', () => openModal(btn.getAttribute('data-servicio-modal')));
+            });
+
+            closeButtons.forEach(btn => {
+                btn.addEventListener('click', () => closeModal(btn.closest('.servicio-modal-backdrop')));
+            });
+
+            document.querySelectorAll('.servicio-modal-backdrop').forEach(backdrop => {
+                backdrop.addEventListener('click', (e) => {
+                    if (e.target === backdrop) closeModal(backdrop);
                 });
             });
         })();
