@@ -63,6 +63,8 @@
         .gallery-swiper-pagination { position: static !important; margin-top: 1rem; }
         .gallery-swiper-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
         .gallery-swiper-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
+        .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 40; width: 3.5rem; height: 3.5rem; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); color: white; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -320,6 +322,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/584248881946" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
