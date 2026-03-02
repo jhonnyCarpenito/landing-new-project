@@ -33,6 +33,12 @@
     <!-- AOS - Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- GLightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3/dist/css/glightbox.min.css">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
@@ -47,6 +53,16 @@
         .btn-primary:hover { background-color: #1a00b3; box-shadow: 0 10px 40px -10px rgba(24, 0, 153, 0.5); transform: translateY(-1px); }
         .value-card { transition: all 0.3s ease; }
         .value-card:hover { transform: translateY(-4px); background-color: rgba(255,255,255,0.95); box-shadow: 0 12px 24px -8px rgba(24, 0, 153, 0.15); }
+        .gallery-slide { cursor: pointer; position: relative; }
+        .gallery-slide::after { content: ''; position: absolute; inset: 0; background: rgba(24, 0, 153, 0); transition: background 0.3s; border-radius: 1rem; pointer-events: none; }
+        .gallery-slide:hover::after { background: rgba(24, 0, 153, 0.1); }
+        .gallery-slide .zoom-hint { position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: white; padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+        .gallery-slide:hover .zoom-hint { opacity: 1; }
+        .gallery-swiper-nav { width: 2rem; height: 2rem; flex-shrink: 0; background: none !important; border: none !important; box-shadow: none !important; color: #180099 !important; display: flex !important; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease; position: relative !important; top: auto !important; margin-top: 0 !important; }
+        .gallery-swiper-nav:hover { transform: scale(1.25); color: #180099 !important; }
+        .gallery-swiper-pagination { position: static !important; margin-top: 1rem; }
+        .gallery-swiper-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
+        .gallery-swiper-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -119,8 +135,64 @@
                     </p>
                 </div>
                 <div class="relative" data-aos="fade-left" data-aos-duration="600">
-                    <img src="FOTOS/IMG_0169.JPG" alt="Especialización Industrial" class="rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]">
-                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-primary rounded-lg opacity-20"></div>
+                    <div class="flex items-center gap-3 lg:gap-4">
+                        <div class="swiper-button-prev gallery-swiper-nav" id="gallery-prev" aria-label="Anterior"></div>
+                        <div class="swiper gallery-swiper flex-1 rounded-2xl overflow-hidden shadow-2xl min-w-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_0169.JPG" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Especialización Industrial">
+                                        <img src="FOTOS/IMG_0169.JPG" alt="Instalaciones industriales" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_0151.jpg" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Trabajo especializado">
+                                        <img src="FOTOS/IMG_0151.jpg" alt="Trabajo especializado" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_0135.jpg" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Proyectos industriales">
+                                        <img src="FOTOS/IMG_0135.jpg" alt="Proyectos industriales" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_3037.JPG" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Mantenimiento industrial">
+                                        <img src="FOTOS/IMG_3037.JPG" alt="Mantenimiento industrial" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_2548.png" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Operaciones industriales">
+                                        <img src="FOTOS/IMG_2548.png" alt="Operaciones industriales" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/IMG_0377.png" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Ingeniería industrial">
+                                        <img src="FOTOS/IMG_0377.png" alt="Ingeniería industrial" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/Imagen%20de%20WhatsApp%202025-05-17%20a%20las%2009.32.47_c2711173.jpg" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Nuestro trabajo">
+                                        <img src="FOTOS/Imagen%20de%20WhatsApp%202025-05-17%20a%20las%2009.32.47_c2711173.jpg" alt="Nuestro trabajo" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="FOTOS/Imagen%20de%20WhatsApp%202025-06-06%20a%20las%2015.36.51_f9a3a3da.jpg" class="gallery-slide block glightbox" data-gallery="especializacion" data-title="Proyectos New Proyect">
+                                        <img src="FOTOS/Imagen%20de%20WhatsApp%202025-06-06%20a%20las%2015.36.51_f9a3a3da.jpg" alt="Proyectos New Proyect" class="w-full aspect-[4/3] object-cover">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-button-next gallery-swiper-nav" id="gallery-next" aria-label="Siguiente"></div>
+                    </div>
+                    <div class="swiper-pagination gallery-swiper-pagination flex justify-center" id="gallery-pagination"></div>
+                    <div class="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-primary rounded-lg opacity-20 pointer-events-none"></div>
                 </div>
             </div>
         </div>
@@ -251,8 +323,33 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3/dist/js/glightbox.min.js"></script>
     <script>
         AOS.init({ duration: 600, once: true, offset: 80 });
+        
+        // Swiper Gallery - controles fuera de la imagen
+        new Swiper('.gallery-swiper', {
+            loop: true,
+            autoplay: { delay: 4000, disableOnInteraction: false },
+            pagination: { el: '#gallery-pagination', clickable: true },
+            navigation: { nextEl: '#gallery-next', prevEl: '#gallery-prev' },
+            effect: 'slide',
+            speed: 600,
+            grabCursor: true,
+        });
+        
+        // GLightbox - Galería lightbox al hacer clic
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true,
+            closeButton: true,
+            zoomable: true,
+            draggable: true,
+            openEffect: 'zoom',
+            closeEffect: 'fade',
+        });
         document.getElementById('year').textContent = new Date().getFullYear();
         
         const mobileBtn = document.getElementById('mobile-menu-btn');
