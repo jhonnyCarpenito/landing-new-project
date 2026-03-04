@@ -68,6 +68,11 @@
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); color: white; }
         .servicio-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         .servicio-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(24, 0, 153, 0.2); border-color: rgba(24, 0, 153, 0.3); }
+        .servicio-card .servicio-card-portada { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #E5E7EB; }
+        .servicio-card .servicio-card-portada img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .servicio-card:hover .servicio-card-portada img { transform: scale(1.03); }
+        .servicio-card .servicio-card-icono { position: absolute; top: 0.75rem; right: 0.75rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(24, 0, 153, 0.9); color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .servicio-card .servicio-card-body { padding: 1.25rem 1.5rem 1.5rem; }
         .servicio-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10050; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
         .servicio-modal-backdrop.is-open { opacity: 1; visibility: visible; }
         .servicio-modal-box { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.95); max-width: 56rem; width: calc(100% - 2rem); max-height: calc(100vh - 2rem); background: white; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); z-index: 10051; overflow: hidden; opacity: 0; visibility: hidden; transition: opacity 0.3s, transform 0.3s, visibility 0.3s; }
@@ -275,45 +280,60 @@
             </header>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-search-plus text-2xl text-primary" aria-hidden="true"></i>
+                <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0">
+                    <div class="servicio-card-portada">
+                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/PORTADA.JPG" alt="Inspección Técnica y Ensayos No Destructivos">
+                        <span class="servicio-card-icono" aria-hidden="true"><i class="fas fa-search-plus"></i></span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Inspección Técnica y Ensayos No Destructivos (END)</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos.</p>
-                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    <div class="servicio-card-body flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Inspección Técnica y Ensayos No Destructivos (END)</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos.</p>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    </div>
                 </article>
-                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-cogs text-2xl text-primary" aria-hidden="true"></i>
+                <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
+                    <div class="servicio-card-portada">
+                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/PORTADA.jpg" alt="Integridad Mecánica y Mantenimiento de Equipos">
+                        <span class="servicio-card-icono" aria-hidden="true"><i class="fas fa-cogs"></i></span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento de Equipos</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada.</p>
-                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    <div class="servicio-card-body flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento de Equipos</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada.</p>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    </div>
                 </article>
-                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-industry text-2xl text-primary" aria-hidden="true"></i>
+                <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
+                    <div class="servicio-card-portada">
+                        <img src="assets/servicios/Mantenimiento Mayor e Integridad de Tanques de Almacenamiento/PORTADA.jpg" alt="Mantenimiento Mayor e Integridad de Tanques de Almacenamiento">
+                        <span class="servicio-card-icono" aria-hidden="true"><i class="fas fa-industry"></i></span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo.</p>
-                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    <div class="servicio-card-body flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo.</p>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    </div>
                 </article>
-                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-hard-hat text-2xl text-primary" aria-hidden="true"></i>
+                <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
+                    <div class="servicio-card-portada">
+                        <img src="assets/servicios/Ingenieria Civil y Movimientos de Tierra/PORTADA.jpg" alt="Ingeniería Civil y Movimientos de Tierra">
+                        <span class="servicio-card-icono" aria-hidden="true"><i class="fas fa-hard-hat"></i></span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ingeniería Civil y Movimientos de Tierra</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada.</p>
-                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    <div class="servicio-card-body flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Ingeniería Civil y Movimientos de Tierra</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada.</p>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    </div>
                 </article>
-                <article class="servicio-card bg-white rounded-2xl p-6 shadow-lg border border-secondary/20 overflow-hidden" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
-                    <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                        <i class="fas fa-truck-fast text-2xl text-primary" aria-hidden="true"></i>
+                <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
+                    <div class="servicio-card-portada">
+                        <img src="assets/servicios/Gestion de Procura y Suministros Globales/PORTADA.jpg" alt="Gestión de Procura y Suministros Globales">
+                        <span class="servicio-card-icono" aria-hidden="true"><i class="fas fa-truck-fast"></i></span>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Gestión de Procura y Suministros Globales</h3>
-                    <p class="text-gray-600 text-sm mb-5 line-clamp-2">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente.</p>
-                    <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full sm:w-auto" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    <div class="servicio-card-body flex flex-col flex-1">
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Gestión de Procura y Suministros Globales</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente.</p>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                    </div>
                 </article>
             </div>
         </div>
