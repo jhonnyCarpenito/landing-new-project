@@ -36,7 +36,8 @@ Luego visita http://localhost:8080
 ```
 ├── index.html      # Landing page principal
 ├── specs.md        # Especificaciones del proyecto
-├── FOTOS/          # Imágenes de proyectos
-├── LOGOS/          # Logos de la empresa
+├── assets/         # Imágenes y recursos (fotos de proyectos, etc.)
+│   ├── logos/      # Logos de la empresa
+│   └── servicios/  # Fotos por servicio (END, Integridad Mecánica, etc.)
 └── INFO EMPRESA/   # Documentación
 ```
