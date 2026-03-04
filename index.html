@@ -78,6 +78,19 @@
         .servicio-modal-close:focus-visible { outline: 2px solid #180099; outline-offset: 2px; }
         .servicio-modal-content .desglose-titulo { font-weight: 600; color: #374151; }
         .galeria-mini .gallery-slide { min-width: 0; }
+        .servicio-galeria-slider { position: relative; }
+        .servicio-galeria-slider .swiper { border-radius: 0.75rem; overflow: hidden; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2); }
+        .servicio-galeria-slider .swiper-slide { display: flex; align-items: center; justify-content: center; }
+        .servicio-galeria-slider .swiper-slide a { width: 100%; display: block; }
+        .servicio-galeria-slider .swiper-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .servicio-galeria-slider .servicio-slider-prev,
+        .servicio-galeria-slider .servicio-slider-next { flex-shrink: 0; width: 2.5rem; height: 2.5rem; background: #F3F4F6; color: #180099; border: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.2s; }
+        .servicio-galeria-slider .servicio-slider-prev:hover,
+        .servicio-galeria-slider .servicio-slider-next:hover { background: #180099; color: white; transform: scale(1.05); }
+        /* Cada indicador de paginación debajo de su slider, independiente */
+        .servicio-galeria-slider .servicio-slider-pagination { position: static !important; margin-top: 0.75rem; width: 100%; }
+        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
+        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -331,35 +344,58 @@
                     <li><span class="desglose-titulo">Personal Certificado API: </span>Inspectores con amplia experiencia en entornos industriales exigentes.</li>
                     <li><span class="desglose-titulo">Optimización de Costos: </span>Al identificar el problema exacto, evitamos reparaciones innecesarias y extendemos la vida útil de sus activos.</li>
                 </ul>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 galeria-end-grid" aria-label="Galería END">
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/ESTUDIO DE VERTICALIDAD, ASENTAMIENTO Y REDONDEZ CON LASER SCAN [35].jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Estudio de verticalidad, asentamiento y redondez con láser scan">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/ESTUDIO DE VERTICALIDAD, ASENTAMIENTO Y REDONDEZ CON LASER SCAN [35].jpg" alt="Estudio de verticalidad, asentamiento y redondez con láser scan" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1649.JPG" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Inspección técnica en campo 1">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1649.JPG" alt="Inspección técnica en campo 1" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1669.JPG" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Inspección técnica en campo 2">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1669.JPG" alt="Inspección técnica en campo 2" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1675.JPG" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Equipo de medición y escaneo">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1675.JPG" alt="Equipo de medición y escaneo" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241126-WA0024.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Ensayo no destructivo en interior de tanque">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241126-WA0024.jpg" alt="Ensayo no destructivo en interior de tanque" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241208-WA0080.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Equipos y antenas para medición">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241208-WA0080.jpg" alt="Equipos y antenas para medición" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20250105-WA0025.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="end-inspeccion" data-title="Medición y monitoreo con equipo portátil">
-                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20250105-WA0025.jpg" alt="Medición y monitoreo con equipo portátil" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
+                <div class="servicio-galeria-slider mt-8" aria-label="Galería END">
+                    <div class="flex items-center gap-2">
+                        <button type="button" class="servicio-slider-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                        <div class="swiper servicio-slider flex-1 w-full min-w-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/ESTUDIO DE VERTICALIDAD, ASENTAMIENTO Y REDONDEZ CON LASER SCAN [35].jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Estudio de verticalidad, asentamiento y redondez con láser scan">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/ESTUDIO DE VERTICALIDAD, ASENTAMIENTO Y REDONDEZ CON LASER SCAN [35].jpg" alt="Estudio de verticalidad, asentamiento y redondez con láser scan">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1649.JPG" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Inspección técnica en campo 1">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1649.JPG" alt="Inspección técnica en campo 1">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1669.JPG" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Inspección técnica en campo 2">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1669.JPG" alt="Inspección técnica en campo 2">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1675.JPG" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Equipo de medición y escaneo">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG_1675.JPG" alt="Equipo de medición y escaneo">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241126-WA0024.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Ensayo no destructivo en interior de tanque">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241126-WA0024.jpg" alt="Ensayo no destructivo en interior de tanque">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241208-WA0080.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Equipos y antenas para medición">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20241208-WA0080.jpg" alt="Equipos y antenas para medición">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20250105-WA0025.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="end-inspeccion" data-title="Medición y monitoreo con equipo portátil">
+                                        <img src="assets/servicios/Inspeccion Tecnica y Ensayos No Destructivos (END)/IMG-20250105-WA0025.jpg" alt="Medición y monitoreo con equipo portátil">
+                                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="servicio-slider-next" aria-label="Siguiente imagen"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-3"></div>
                 </div>
             </div>
         </div>
@@ -378,39 +414,24 @@
                     <li><span class="desglose-titulo">Calderas y Hornos Reformadores: </span>Mantenimiento de sistemas de combustión, sustitución de refractarios, cambio de tuberías (coils) y optimización de quemadores.</li>
                     <li><span class="desglose-titulo">Recipientes a Presión: </span>Reparaciones soldadas bajo código ASME, cambio de juntas y adecuación de boquillas.</li>
                 </ul>
-                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-1.5 mb-6 galeria-mini" aria-label="Galería Equipos Estáticos">
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0077.png" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0077.png" alt="Equipos estáticos 1" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250424-WA0202-2 (1).jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250424-WA0202-2 (1).jpg" alt="Equipos estáticos 2" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/Imagen de WhatsApp 2025-05-17 a las 09.32.47_c2711173.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/Imagen de WhatsApp 2025-05-17 a las 09.32.47_c2711173.jpg" alt="Equipos estáticos 3" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250519-WA0116.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250519-WA0116.jpg" alt="Equipos estáticos 4" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250521-WA0173.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250521-WA0173.jpg" alt="Equipos estáticos 5" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250620-WA0006.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250620-WA0006.jpg" alt="Equipos estáticos 6" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0074.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0074.jpg" alt="Equipos estáticos 7" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG_0390-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos y transferencia de calor">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG_0390-2.jpg" alt="Equipos estáticos 8" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
+                <div class="servicio-galeria-slider mb-6" aria-label="Galería Equipos Estáticos">
+                    <div class="flex items-center gap-2">
+                        <button type="button" class="servicio-slider-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <div class="swiper servicio-slider flex-1 w-full min-w-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0077.png" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0077.png" alt="Equipos estáticos 1"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250424-WA0202-2 (1).jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250424-WA0202-2 (1).jpg" alt="Equipos estáticos 2"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/Imagen de WhatsApp 2025-05-17 a las 09.32.47_c2711173.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/Imagen de WhatsApp 2025-05-17 a las 09.32.47_c2711173.jpg" alt="Equipos estáticos 3"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250519-WA0116.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250519-WA0116.jpg" alt="Equipos estáticos 4"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250521-WA0173.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250521-WA0173.jpg" alt="Equipos estáticos 5"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250620-WA0006.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250620-WA0006.jpg" alt="Equipos estáticos 6"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0074.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG-20250427-WA0074.jpg" alt="Equipos estáticos 7"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG_0390-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-estaticos" data-title="Equipos estáticos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/1. Equipos Estaticos y de Transferencia de Calor/IMG_0390-2.jpg" alt="Equipos estáticos 8"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                            </div>
+                        </div>
+                        <button type="button" class="servicio-slider-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Equipos Rotativos y Sistemas de Bombeo</h3>
                 <p class="text-gray-600 mb-4">Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético.</p>
@@ -419,35 +440,23 @@
                     <li><span class="desglose-titulo">Motores Eléctricos: </span>Diagnóstico de fallas, mantenimiento preventivo y correctivo, y alineación láser para garantizar una transmisión de potencia óptima.</li>
                     <li><span class="desglose-titulo">Balanceo Dinámico: </span>Eliminación de vibraciones críticas para extender la vida útil de los componentes mecánicos.</li>
                 </ul>
-                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-1.5 mb-6 galeria-mini" aria-label="Galería Equipos Rotativos">
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250419-WA0021.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250419-WA0021.jpg" alt="Equipos rotativos 1" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250728-WA0098-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250728-WA0098-2.jpg" alt="Equipos rotativos 2" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250611-WA0091.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250611-WA0091.jpg" alt="Equipos rotativos 3" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-08-14 a las 08.36.22_22107b6b-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-08-14 a las 08.36.22_22107b6b-2.jpg" alt="Equipos rotativos 4" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250212-WA0012.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250212-WA0012.jpg" alt="Equipos rotativos 5" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-07-03 a las 14.24.11_465a5896-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-07-03 a las 14.24.11_465a5896-2.jpg" alt="Equipos rotativos 6" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/084ab137-762a-48f5-ba6b-cbd0abd3db40-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos y sistemas de bombeo">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/084ab137-762a-48f5-ba6b-cbd0abd3db40-2.jpg" alt="Equipos rotativos 7" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
+                <div class="servicio-galeria-slider mb-6" aria-label="Galería Equipos Rotativos">
+                    <div class="flex items-center gap-2">
+                        <button type="button" class="servicio-slider-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <div class="swiper servicio-slider flex-1 w-full min-w-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250419-WA0021.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250419-WA0021.jpg" alt="Equipos rotativos 1"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250728-WA0098-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250728-WA0098-2.jpg" alt="Equipos rotativos 2"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250611-WA0091.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250611-WA0091.jpg" alt="Equipos rotativos 3"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-08-14 a las 08.36.22_22107b6b-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-08-14 a las 08.36.22_22107b6b-2.jpg" alt="Equipos rotativos 4"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250212-WA0012.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/IMG-20250212-WA0012.jpg" alt="Equipos rotativos 5"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-07-03 a las 14.24.11_465a5896-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/Imagen de WhatsApp 2025-07-03 a las 14.24.11_465a5896-2.jpg" alt="Equipos rotativos 6"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/084ab137-762a-48f5-ba6b-cbd0abd3db40-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-rotativos" data-title="Equipos rotativos"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/2. Equipos Rotativos y Sistemas de Bombeo/084ab137-762a-48f5-ba6b-cbd0abd3db40-2.jpg" alt="Equipos rotativos 7"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                            </div>
+                        </div>
+                        <button type="button" class="servicio-slider-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Válvulas de Control y Seguridad</h3>
                 <p class="text-gray-600 mb-4">Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa.</p>
@@ -455,23 +464,20 @@
                     <li><span class="desglose-titulo">Mantenimiento y Calibración: </span>Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.</li>
                     <li><span class="desglose-titulo">Pruebas de Banco: </span>Certificación de estanqueidad y disparo según normativas internacionales.</li>
                 </ul>
-                <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 gap-1.5 mb-6 galeria-mini" aria-label="Galería Válvulas de Control">
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-15 a las 13.44.50_99d076d1-2.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-15 a las 13.44.50_99d076d1-2.jpg" alt="Válvulas 1" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250710-WA0067.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250710-WA0067.jpg" alt="Válvulas 2" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-14 a las 11.50.10_6ef364da.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-14 a las 11.50.10_6ef364da.jpg" alt="Válvulas 3" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
-                    <a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250525-WA0119.jpg" class="glightbox gallery-slide block aspect-[4/3] overflow-hidden rounded-lg shadow-md relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad">
-                        <img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250525-WA0119.jpg" alt="Válvulas 4" class="w-full h-full object-cover">
-                        <span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span>
-                    </a>
+                <div class="servicio-galeria-slider mb-6" aria-label="Galería Válvulas de Control">
+                    <div class="flex items-center gap-2">
+                        <button type="button" class="servicio-slider-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+                        <div class="swiper servicio-slider flex-1 w-full min-w-0">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-15 a las 13.44.50_99d076d1-2.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-15 a las 13.44.50_99d076d1-2.jpg" alt="Válvulas 1"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250710-WA0067.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250710-WA0067.jpg" alt="Válvulas 2"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-14 a las 11.50.10_6ef364da.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/Imagen de WhatsApp 2025-08-14 a las 11.50.10_6ef364da.jpg" alt="Válvulas 3"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                                <div class="swiper-slide"><a href="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250525-WA0119.jpg" class="glightbox gallery-slide block aspect-[16/10] relative" data-gallery="integridad-valvulas" data-title="Válvulas de control y seguridad"><img src="assets/servicios/Integridad Mecanica y Mantenimiento de Equipos/3. Valvulas de Control y Seguridad/IMG-20250525-WA0119.jpg" alt="Válvulas 4"><span class="zoom-hint"><i class="fas fa-search-plus mr-1"></i> Ver en grande</span></a></div>
+                            </div>
+                        </div>
+                        <button type="button" class="servicio-slider-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Nuestro Valor Agregado en el Taller y Campo</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
@@ -739,6 +745,25 @@
             speed: 600,
             grabCursor: true,
         });
+
+        // Sliders de galería en modales de servicios (una imagen grande por slide, impacto visual)
+        document.querySelectorAll('.servicio-galeria-slider').forEach(function(wrap) {
+            var swiperEl = wrap.querySelector('.servicio-slider');
+            var nextEl = wrap.querySelector('.servicio-slider-next');
+            var prevEl = wrap.querySelector('.servicio-slider-prev');
+            var paginationEl = wrap.querySelector('.servicio-slider-pagination');
+            if (swiperEl && nextEl && prevEl && paginationEl) {
+                new Swiper(swiperEl, {
+                    loop: true,
+                    effect: 'slide',
+                    speed: 500,
+                    grabCursor: true,
+                    navigation: { nextEl: nextEl, prevEl: prevEl },
+                    pagination: { el: paginationEl, clickable: true },
+                    autoplay: { delay: 4500, disableOnInteraction: false },
+                });
+            }
+        });
         
         // GLightbox - Galería lightbox al hacer clic
         const lightbox = GLightbox({
@@ -792,6 +817,10 @@
                 if (closeBtn) closeBtn.focus();
                 document.body.style.overflow = 'hidden';
                 modal.addEventListener('keydown', trapEscape);
+                // Actualizar dimensiones de los sliders dentro del modal (estaban ocultos)
+                modal.querySelectorAll('.servicio-slider').forEach(function(el) {
+                    if (el.swiper) el.swiper.update();
+                });
             }
 
             function closeModal(modal) {
