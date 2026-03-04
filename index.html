@@ -91,6 +91,14 @@
         .servicio-galeria-slider .servicio-slider-pagination { position: static !important; margin-top: 0.75rem; width: 100%; }
         .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
         .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
+        /* Pestañas subservicios (Integridad Mecánica) */
+        .subservicios-tablist { display: flex; flex-wrap: nowrap; gap: 0; margin-bottom: 1rem; border-bottom: 2px solid #E5E7EB; }
+        .subservicios-tablist [role="tab"] { flex: 1 1 0; min-width: 0; padding: 0.4rem 0.35rem; font-size: 0.7rem; line-height: 1.2; font-weight: 600; color: #6B7280; background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; cursor: pointer; transition: color 0.2s, border-color 0.2s; border-radius: 0.25rem 0.25rem 0 0; text-align: center; }
+        @media (min-width: 640px) { .subservicios-tablist [role="tab"] { font-size: 0.8rem; padding: 0.5rem 0.5rem; } }
+        .subservicios-tablist [role="tab"]:hover { color: #180099; }
+        .subservicios-tablist [role="tab"][aria-selected="true"] { color: #180099; border-bottom-color: #180099; }
+        .subservicios-panel { display: none; }
+        .subservicios-panel.is-active { display: block; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -407,7 +415,14 @@
             <div class="servicio-modal-content pt-12">
                 <h2 id="modal-servicio-2-title" class="text-2xl font-bold text-gray-900 mb-6">Integridad Mecánica y Mantenimiento de Equipos</h2>
                 <p class="text-gray-600 mb-6 leading-relaxed">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada para garantizar que sus equipos estáticos y rotativos operen bajo los más altos estándares de eficiencia y seguridad.</p>
-                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">1. Equipos Estáticos y de Transferencia de Calor</h3>
+                <div class="subservicios-tabs mt-6" role="region" aria-label="Subservicios">
+                    <div class="subservicios-tablist" role="tablist">
+                        <button type="button" role="tab" id="tab-estaticos" aria-selected="true" aria-controls="panel-estaticos" data-tab="estaticos">1. Equipos Estáticos y de Transferencia de Calor</button>
+                        <button type="button" role="tab" id="tab-rotativos" aria-selected="false" aria-controls="panel-rotativos" data-tab="rotativos">2. Equipos Rotativos y Sistemas de Bombeo</button>
+                        <button type="button" role="tab" id="tab-valvulas" aria-selected="false" aria-controls="panel-valvulas" data-tab="valvulas">3. Válvulas de Control y Seguridad</button>
+                    </div>
+                    <div class="subservicios-panel is-active" id="panel-estaticos" role="tabpanel" aria-labelledby="tab-estaticos" data-tab="estaticos">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">1. Equipos Estáticos y de Transferencia de Calor</h3>
                 <p class="text-gray-600 mb-4">Especialistas en la recuperación de la eficiencia térmica y la integridad estructural de unidades sometidas a altas presiones y temperaturas.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4 ml-2">
                     <li><span class="desglose-titulo">Intercambiadores de Calor y Aeroenfriadores: </span>Limpieza mecánica y química, retubado, reparación de haces de tubos y pruebas hidrostáticas.</li>
@@ -433,7 +448,9 @@
                     </div>
                     <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">2. Equipos Rotativos y Sistemas de Bombeo</h3>
+                    </div>
+                    <div class="subservicios-panel" id="panel-rotativos" role="tabpanel" aria-labelledby="tab-rotativos" data-tab="rotativos">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">2. Equipos Rotativos y Sistemas de Bombeo</h3>
                 <p class="text-gray-600 mb-4">Soluciones enfocadas en reducir la vibración, el desgaste prematuro y el consumo energético.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4 ml-2">
                     <li><span class="desglose-titulo">Bombas Centrífugas: </span>Overhaul completo, reconstrucción de ejes, cambio de sellos mecánicos, rodamientos e impulsores.</li>
@@ -458,7 +475,9 @@
                     </div>
                     <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
                 </div>
-                <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">3. Válvulas de Control y Seguridad</h3>
+                    </div>
+                    <div class="subservicios-panel" id="panel-valvulas" role="tabpanel" aria-labelledby="tab-valvulas" data-tab="valvulas">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">3. Válvulas de Control y Seguridad</h3>
                 <p class="text-gray-600 mb-4">Precisión en el control de procesos para evitar fugas y garantizar la seguridad operativa.</p>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-4 ml-2">
                     <li><span class="desglose-titulo">Mantenimiento y Calibración: </span>Desarmado, limpieza, rectificado de asientos y calibración de actuadores y posicionadores.</li>
@@ -478,6 +497,8 @@
                         <button type="button" class="servicio-slider-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
                     </div>
                     <div class="servicio-slider-pagination swiper-pagination flex justify-center mt-2"></div>
+                </div>
+                    </div>
                 </div>
                 <h3 class="text-lg font-bold text-gray-900 mt-6 mb-2">Nuestro Valor Agregado en el Taller y Campo</h3>
                 <ul class="list-disc list-inside text-gray-600 space-y-1 mb-8 ml-2">
@@ -853,6 +874,28 @@
             document.querySelectorAll('.servicio-modal-backdrop').forEach(backdrop => {
                 backdrop.addEventListener('click', (e) => {
                     if (e.target === backdrop) closeModal(backdrop);
+                });
+            });
+        })();
+
+        // Pestañas de subservicios (Integridad Mecánica)
+        (function() {
+            var tabs = document.querySelectorAll('.subservicios-tablist [role="tab"]');
+            var panels = document.querySelectorAll('.subservicios-panel');
+            tabs.forEach(function(tab) {
+                tab.addEventListener('click', function() {
+                    var targetId = this.getAttribute('aria-controls');
+                    var targetPanel = document.getElementById(targetId);
+                    if (!targetPanel) return;
+                    tabs.forEach(function(t) {
+                        t.setAttribute('aria-selected', t === tab ? 'true' : 'false');
+                    });
+                    panels.forEach(function(p) {
+                        p.classList.toggle('is-active', p === targetPanel);
+                    });
+                    if (targetPanel.querySelector('.servicio-slider') && targetPanel.querySelector('.servicio-slider').swiper) {
+                        targetPanel.querySelector('.servicio-slider').swiper.update();
+                    }
                 });
             });
         })();
