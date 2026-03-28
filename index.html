@@ -18,9 +18,9 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#180099',
-                        secondary: '#C5C5C5',
-                        surface: '#F9FAFB',
+                        primary: '#0a0a0a',
+                        secondary: '#a1a1aa',
+                        surface: '#f4f4f5',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -45,33 +45,146 @@
     <style>
         html { scroll-behavior: smooth; }
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .hero-overlay { background: linear-gradient(0deg, rgba(15, 35, 90, 0.92) 0%, rgba(70, 130, 180, 0.75) 45%, rgba(135, 206, 235, 0.55) 100%); }
-        .glass-nav { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+        /* Overlay: foto densa (tuberías/grúa); un poco más de contraste para el título metalizado */
+        .hero-overlay { background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.5) 36%, rgba(0, 0, 0, 0.8) 100%); }
+        /* Título estilo referencia cliente: plata/cromo con brillo y lectura sobre fondo industrial */
+        .hero-title-metallic {
+            font-weight: 800;
+            line-height: 1.28;
+            padding-bottom: 0.22em;
+            overflow: visible;
+            color: #e4e4e7;
+            text-shadow:
+                0 1px 0 rgba(255, 255, 255, 0.45),
+                0 -1px 0 rgba(0, 0, 0, 0.35),
+                0 3px 24px rgba(0, 0, 0, 0.65);
+        }
+        @supports ((-webkit-background-clip: text) or (background-clip: text)) {
+            .hero-title-metallic {
+                background-image: linear-gradient(
+                    168deg,
+                    #ffffff 0%,
+                    #f4f4f5 12%,
+                    #d4d4d8 28%,
+                    #a1a1aa 42%,
+                    #e4e4e7 48%,
+                    #71717a 55%,
+                    #d4d4d8 68%,
+                    #fafafa 88%,
+                    #e4e4e7 100%
+                );
+                background-size: 100% 160%;
+                background-position: center top;
+                line-height: 1.28;
+                padding-bottom: 0.22em;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                -webkit-text-fill-color: transparent;
+                text-shadow: none;
+                filter:
+                    drop-shadow(0 2px 3px rgba(0, 0, 0, 0.85))
+                    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.22));
+            }
+        }
+        /* Párrafo del hero: legibilidad sobre foto oscura; halo oscuro difuso (sin caja ni contorno duro) */
+        .hero-sublead {
+            color: #f1f1f4;
+            text-shadow:
+                0 0 1px rgba(0, 0, 0, 0.92),
+                0 1px 2px rgba(0, 0, 0, 0.84),
+                0 3px 12px rgba(0, 0, 0, 0.52),
+                0 8px 28px rgba(0, 0, 0, 0.38);
+        }
+        .btn-nav-cta {
+            background: rgba(39, 39, 42, 0.72);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #fff;
+            border-radius: 6px;
+            transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-nav-cta:hover {
+            background: rgba(63, 63, 70, 0.88);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-1px);
+        }
+        /* CTA hero: metal/cromo en la misma línea cromática que .hero-title-metallic (sin alterar el título) */
+        .btn-hero-primary {
+            background: linear-gradient(
+                165deg,
+                #f4f4f5 0%,
+                #d4d4d8 14%,
+                #a1a1aa 32%,
+                #71717a 52%,
+                #52525b 72%,
+                #3f3f46 100%
+            );
+            border: 1px solid rgba(255, 255, 255, 0.38);
+            border-bottom-color: rgba(0, 0, 0, 0.28);
+            color: #fafafa;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+            border-radius: 6px;
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.42),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.18),
+                0 4px 16px rgba(0, 0, 0, 0.4);
+            transition: filter 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+        }
+        /* Segundo CTA del hero: misma geometría que la referencia (rectangular, ~6px) */
+        .btn-hero-secondary {
+            background: transparent;
+            backdrop-filter: blur(18px) saturate(1.15);
+            -webkit-backdrop-filter: blur(18px) saturate(1.15);
+            border: 1px solid rgba(255, 255, 255, 0.88);
+            color: #fff;
+            border-radius: 6px;
+            transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, transform 0.3s ease;
+        }
+        .btn-hero-secondary:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: #fff;
+            backdrop-filter: blur(22px) saturate(1.2);
+            -webkit-backdrop-filter: blur(22px) saturate(1.2);
+            transform: translateY(-1px);
+        }
+        .btn-hero-primary:hover {
+            filter: brightness(1.09) contrast(1.02);
+            border-color: rgba(255, 255, 255, 0.48);
+            border-bottom-color: rgba(0, 0, 0, 0.22);
+            box-shadow:
+                inset 0 1px 0 rgba(255, 255, 255, 0.5),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.15),
+                0 8px 28px rgba(0, 0, 0, 0.45);
+            transform: translateY(-1px);
+        }
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
         .card-hover { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .btn-primary { background-color: #180099; transition: all 0.3s ease; }
-        .btn-primary:hover { background-color: #1a00b3; box-shadow: 0 10px 40px -10px rgba(24, 0, 153, 0.5); transform: translateY(-1px); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18); }
+        .btn-primary { background-color: #27272a; transition: all 0.3s ease; }
+        .btn-primary:hover { background-color: #3f3f46; box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.35); transform: translateY(-1px); }
         .value-card { transition: all 0.3s ease; }
-        .value-card:hover { transform: translateY(-4px); background-color: rgba(255,255,255,0.95); box-shadow: 0 12px 24px -8px rgba(24, 0, 153, 0.15); }
+        .value-card:hover { transform: translateY(-4px); background-color: rgba(255,255,255,0.98); box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.12); }
         .gallery-slide { cursor: pointer; position: relative; }
-        .gallery-slide::after { content: ''; position: absolute; inset: 0; background: rgba(24, 0, 153, 0); transition: background 0.3s; border-radius: 1rem; pointer-events: none; }
-        .gallery-slide:hover::after { background: rgba(24, 0, 153, 0.1); }
+        .gallery-slide::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0); transition: background 0.3s; border-radius: 1rem; pointer-events: none; }
+        .gallery-slide:hover::after { background: rgba(0, 0, 0, 0.12); }
         .gallery-slide .zoom-hint { position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.6); color: white; padding: 0.5rem 0.75rem; border-radius: 0.5rem; font-size: 0.75rem; opacity: 0; transition: opacity 0.3s; pointer-events: none; }
         .gallery-slide:hover .zoom-hint { opacity: 1; }
-        .gallery-swiper-nav { width: 2rem; height: 2rem; flex-shrink: 0; background: none !important; border: none !important; box-shadow: none !important; color: #180099 !important; display: flex !important; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease; position: relative !important; top: auto !important; margin-top: 0 !important; }
-        .gallery-swiper-nav:hover { transform: scale(1.25); color: #180099 !important; }
+        .gallery-swiper-nav { width: 2rem; height: 2rem; flex-shrink: 0; background: none !important; border: none !important; box-shadow: none !important; color: #27272a !important; display: flex !important; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s ease, color 0.2s ease; position: relative !important; top: auto !important; margin-top: 0 !important; }
+        .gallery-swiper-nav:hover { transform: scale(1.25); color: #0a0a0a !important; }
         .gallery-swiper-pagination { position: static !important; margin-top: 1rem; }
-        .gallery-swiper-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
-        .gallery-swiper-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
+        .gallery-swiper-pagination .swiper-pagination-bullet { background: #d4d4d8; opacity: 1; }
+        .gallery-swiper-pagination .swiper-pagination-bullet-active { background: #27272a !important; }
         .gallery-swiper { width: 100%; max-width: 100%; overflow: hidden !important; }
         .whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9998; width: 3.5rem; height: 3.5rem; background: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); transition: transform 0.2s, box-shadow 0.2s; }
         .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); color: white; }
         .servicio-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .servicio-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(24, 0, 153, 0.2); border-color: rgba(24, 0, 153, 0.3); }
+        .servicio-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.14); border-color: rgba(0, 0, 0, 0.12); }
         .servicio-card .servicio-card-portada { position: relative; aspect-ratio: 16/10; overflow: hidden; background: #E5E7EB; }
         .servicio-card .servicio-card-portada img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
         .servicio-card:hover .servicio-card-portada img { transform: scale(1.03); }
-        .servicio-card .servicio-card-icono { position: absolute; top: 0.75rem; right: 0.75rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(24, 0, 153, 0.9); color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .servicio-card .servicio-card-icono { position: absolute; top: 0.75rem; right: 0.75rem; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; background: rgba(24, 24, 27, 0.92); color: white; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.25); }
         .servicio-card .servicio-card-body { padding: 1.25rem 1.5rem 1.5rem; }
         .servicio-modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 10050; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
         .servicio-modal-backdrop.is-open { opacity: 1; visibility: visible; }
@@ -79,8 +192,8 @@
         .servicio-modal-backdrop.is-open .servicio-modal-box { opacity: 1; visibility: visible; transform: translate(-50%, -50%) scale(1); }
         .servicio-modal-content { overflow-y: auto; max-height: calc(100vh - 6rem); padding: 1.5rem; }
         .servicio-modal-close { position: absolute; top: 1rem; right: 1rem; z-index: 10; width: 2.5rem; height: 2.5rem; border-radius: 0.5rem; border: none; background: #F9FAFB; color: #374151; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
-        .servicio-modal-close:hover { background: #180099; color: white; }
-        .servicio-modal-close:focus-visible { outline: 2px solid #180099; outline-offset: 2px; }
+        .servicio-modal-close:hover { background: #27272a; color: white; }
+        .servicio-modal-close:focus-visible { outline: 2px solid #27272a; outline-offset: 2px; }
         .servicio-modal-content .desglose-titulo { font-weight: 600; color: #374151; }
         .galeria-mini .gallery-slide { min-width: 0; }
         .servicio-galeria-slider { position: relative; }
@@ -89,75 +202,75 @@
         .servicio-galeria-slider .swiper-slide a { width: 100%; display: block; }
         .servicio-galeria-slider .swiper-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
         .servicio-galeria-slider .servicio-slider-prev,
-        .servicio-galeria-slider .servicio-slider-next { flex-shrink: 0; width: 2.5rem; height: 2.5rem; background: #F3F4F6; color: #180099; border: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.2s; }
+        .servicio-galeria-slider .servicio-slider-next { flex-shrink: 0; width: 2.5rem; height: 2.5rem; background: #F3F4F6; color: #27272a; border: none; border-radius: 0.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s, color 0.2s, transform 0.2s; }
         .servicio-galeria-slider .servicio-slider-prev:hover,
-        .servicio-galeria-slider .servicio-slider-next:hover { background: #180099; color: white; transform: scale(1.05); }
+        .servicio-galeria-slider .servicio-slider-next:hover { background: #27272a; color: white; transform: scale(1.05); }
         /* Cada indicador de paginación debajo de su slider, independiente */
         .servicio-galeria-slider .servicio-slider-pagination { position: static !important; margin-top: 0.75rem; width: 100%; }
-        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet { background: #C5C5C5; opacity: 1; }
-        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet-active { background: #180099 !important; }
+        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet { background: #d4d4d8; opacity: 1; }
+        .servicio-galeria-slider .servicio-slider-pagination .swiper-pagination-bullet-active { background: #27272a !important; }
         /* Pestañas subservicios (Integridad Mecánica) */
         .subservicios-tablist { display: flex; flex-wrap: nowrap; gap: 0; margin-bottom: 1rem; border-bottom: 2px solid #E5E7EB; }
         .subservicios-tablist [role="tab"] { flex: 1 1 0; min-width: 0; padding: 0.4rem 0.35rem; font-size: 0.7rem; line-height: 1.2; font-weight: 600; color: #6B7280; background: none; border: none; border-bottom: 3px solid transparent; margin-bottom: -2px; cursor: pointer; transition: color 0.2s, border-color 0.2s; border-radius: 0.25rem 0.25rem 0 0; text-align: center; }
         @media (min-width: 640px) { .subservicios-tablist [role="tab"] { font-size: 0.8rem; padding: 0.5rem 0.5rem; } }
-        .subservicios-tablist [role="tab"]:hover { color: #180099; }
-        .subservicios-tablist [role="tab"][aria-selected="true"] { color: #180099; border-bottom-color: #180099; }
+        .subservicios-tablist [role="tab"]:hover { color: #27272a; }
+        .subservicios-tablist [role="tab"][aria-selected="true"] { color: #0a0a0a; border-bottom-color: #0a0a0a; }
         .subservicios-panel { display: none; }
         .subservicios-panel.is-active { display: block; }
     </style>
 </head>
 <body class="antialiased text-gray-800">
     
-    <!-- ========== NAVBAR (Sticky & Glassmorphism) ========== -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-[9999] glass-nav bg-white/80 border-b border-secondary/30 transition-all duration-300">
+    <!-- ========== NAVBAR (Dark / metallic brand) ========== -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-[9999] glass-nav bg-black border-b border-white/5 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <a href="#inicio" class="flex items-center">
-                    <img src="assets/logos/NPLOGO-NEGRO.png" alt="New Proyect" class="h-12 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <span class="text-xl font-bold text-primary hidden" style="font-weight: 800;">New Proyect</span>
+                    <img src="assets/logos/logo-metalizado.png" alt="New Proyect" class="h-11 w-auto" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <span class="text-xl font-bold text-white hidden" style="font-weight: 800;">New Proyect</span>
                 </a>
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#inicio" class="text-gray-600 hover:text-primary font-medium transition-colors">Inicio</a>
-                    <a href="#especializacion" class="text-gray-600 hover:text-primary font-medium transition-colors">Especialización</a>
-                    <a href="#servicios" class="text-gray-600 hover:text-primary font-medium transition-colors">Servicios</a>
-                    <a href="#experiencia" class="text-gray-600 hover:text-primary font-medium transition-colors">Experiencia</a>
-                    <a href="#filosofia" class="text-gray-600 hover:text-primary font-medium transition-colors">Filosofía</a>
-                    <a href="#contacto" class="btn-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm">Solicitar Presupuesto</a>
+                    <a href="#inicio" class="text-gray-300 hover:text-white font-medium transition-colors">Inicio</a>
+                    <a href="#especializacion" class="text-gray-300 hover:text-white font-medium transition-colors">Especialización</a>
+                    <a href="#servicios" class="text-gray-300 hover:text-white font-medium transition-colors">Servicios</a>
+                    <a href="#experiencia" class="text-gray-300 hover:text-white font-medium transition-colors">Experiencia</a>
+                    <a href="#filosofia" class="text-gray-300 hover:text-white font-medium transition-colors">Filosofía</a>
+                    <a href="#contacto" class="btn-nav-cta px-6 py-2.5 font-semibold text-sm">Solicitar Presupuesto</a>
                 </div>
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-600 hover:text-primary">
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-300 hover:text-white" type="button" aria-expanded="false" aria-controls="mobile-menu">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden glass-nav bg-white/95 border-t border-secondary/30">
+        <div id="mobile-menu" class="md:hidden hidden glass-nav bg-black border-t border-white/5">
             <div class="px-4 py-4 space-y-3">
-                <a href="#inicio" class="block py-2 text-gray-600 hover:text-primary font-medium">Inicio</a>
-                <a href="#especializacion" class="block py-2 text-gray-600 hover:text-primary font-medium">Especialización</a>
-                <a href="#servicios" class="block py-2 text-gray-600 hover:text-primary font-medium">Servicios</a>
-                <a href="#experiencia" class="block py-2 text-gray-600 hover:text-primary font-medium">Experiencia</a>
-                <a href="#filosofia" class="block py-2 text-gray-600 hover:text-primary font-medium">Filosofía</a>
-                <a href="#contacto" class="btn-primary block text-center text-white py-3 rounded-lg font-semibold">Solicitar Presupuesto</a>
+                <a href="#inicio" class="block py-2 text-gray-300 hover:text-white font-medium">Inicio</a>
+                <a href="#especializacion" class="block py-2 text-gray-300 hover:text-white font-medium">Especialización</a>
+                <a href="#servicios" class="block py-2 text-gray-300 hover:text-white font-medium">Servicios</a>
+                <a href="#experiencia" class="block py-2 text-gray-300 hover:text-white font-medium">Experiencia</a>
+                <a href="#filosofia" class="block py-2 text-gray-300 hover:text-white font-medium">Filosofía</a>
+                <a href="#contacto" class="btn-nav-cta block text-center py-3 font-semibold">Solicitar Presupuesto</a>
             </div>
         </div>
     </nav>
 
     <main class="overflow-x-hidden w-full">
     <!-- ========== HERO SECTION ========== -->
-    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0">
-            <img src="assets/IMG_3037.JPG" alt="Ingeniería Industrial" class="w-full h-full object-cover">
+    <section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-x-hidden overflow-y-visible">
+        <div class="absolute inset-0 overflow-hidden" aria-hidden="true">
+            <img src="assets/PORTADA%20HOME.jpg" alt="Ingeniería y mantenimiento industrial" class="w-full h-full object-cover object-center">
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
         <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+            <h1 class="hero-title-metallic text-4xl sm:text-5xl lg:text-6xl mb-6" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
                 New Proyect: Ingeniería y Mantenimiento Industrial Integral
             </h1>
-            <p class="text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <p class="hero-sublead text-lg sm:text-xl max-w-3xl mx-auto mb-10 font-light leading-relaxed" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 En New Proyect, combinamos experiencia, innovación y compromiso para asegurar la operatividad y eficiencia de tus equipos, minimizando tiempos de inactividad y optimizando tus procesos productivos.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
-                <a href="#servicios" class="btn-primary text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block">Nuestros Servicios</a>
-                <a href="#filosofia" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg inline-block hover:bg-white hover:text-primary transition-all duration-300">Sobre nosotros</a>
+                <a href="#servicios" class="btn-hero-primary px-8 py-4 font-semibold text-lg inline-block text-center">Nuestros Servicios</a>
+                <a href="#filosofia" class="btn-hero-secondary px-8 py-4 font-medium text-lg inline-block text-center">Sobre nosotros</a>
             </div>
         </div>
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
@@ -288,7 +401,7 @@
                     <div class="servicio-card-body flex flex-col flex-1">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Inspección Técnica y Ensayos No Destructivos (END)</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">La prevención es la base de la rentabilidad. En New Proyect, aplicamos metodologías avanzadas de inspección para evaluar la condición real de sus equipos.</p>
-                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-full font-semibold text-sm w-full" data-servicio-modal="modal-servicio-1" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                     </div>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="100">
@@ -299,7 +412,7 @@
                     <div class="servicio-card-body flex flex-col flex-1">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Integridad Mecánica y Mantenimiento de Equipos</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Maximizamos la disponibilidad de sus activos mediante intervenciones técnicas de alta precisión. En New Proyect, combinamos ingeniería de detalle con ejecución especializada.</p>
-                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-full font-semibold text-sm w-full" data-servicio-modal="modal-servicio-2" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                     </div>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="200">
@@ -310,7 +423,7 @@
                     <div class="servicio-card-body flex flex-col flex-1">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Mantenimiento Mayor e Integridad de Tanques de Almacenamiento</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Garantizamos la vida útil y la seguridad operativa de sus sistemas de almacenamiento. Ejecutamos proyectos de recuperación mayor de tanques de crudo.</p>
-                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-full font-semibold text-sm w-full" data-servicio-modal="modal-servicio-3" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                     </div>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="300">
@@ -321,7 +434,7 @@
                     <div class="servicio-card-body flex flex-col flex-1">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Ingeniería Civil y Movimientos de Tierra</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Toda gran obra comienza desde el suelo. En New Proyect, transformamos el terreno para adaptarlo a las exigencias de la industria pesada.</p>
-                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-full font-semibold text-sm w-full" data-servicio-modal="modal-servicio-4" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                     </div>
                 </article>
                 <article class="servicio-card bg-white rounded-2xl shadow-lg border border-secondary/20 overflow-hidden flex flex-col" data-aos="fade-up" data-aos-duration="500" data-aos-delay="400">
@@ -332,7 +445,7 @@
                     <div class="servicio-card-body flex flex-col flex-1">
                         <h3 class="text-lg font-bold text-gray-900 mb-2">Gestión de Procura y Suministros Globales</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">Sabemos que un componente crítico puede detener toda una línea de producción. Optimizamos su cadena de suministro mediante una gestión de procura inteligente.</p>
-                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-lg font-semibold text-sm w-full" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
+                        <button type="button" class="btn-primary text-white px-4 py-2.5 rounded-full font-semibold text-sm w-full" data-servicio-modal="modal-servicio-5" aria-haspopup="dialog" aria-expanded="false">Ver Especificaciones Técnicas</button>
                     </div>
                 </article>
             </div>
@@ -766,8 +879,8 @@
                     <li><span class="desglose-titulo">Cumplimiento Ambiental: </span>Ejecutamos cada movimiento de tierra bajo protocolos de gestión de residuos y control de erosión.</li>
                 </ul>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Obras Civiles">
-                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles" alt="Obras civiles 1" class="w-full h-auto rounded-lg shadow-md object-cover">
-                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Obras+Civiles" alt="Obras civiles 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/27272a/FFFFFF?text=Obras+Civiles" alt="Obras civiles 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/27272a/FFFFFF?text=Obras+Civiles" alt="Obras civiles 2" class="w-full h-auto rounded-lg shadow-md object-cover">
                 </div>
             </div>
         </div>
@@ -808,8 +921,8 @@
                     <li><span class="desglose-titulo">Reducción de Lead Times: </span>Optimizamos los tiempos de entrega mediante alianzas estratégicas con operadores logísticos globales.</li>
                 </ul>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8" aria-label="Galería Gestión Procura">
-                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 1" class="w-full h-auto rounded-lg shadow-md object-cover">
-                    <img src="https://placehold.co/600x400/180099/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 2" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/27272a/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 1" class="w-full h-auto rounded-lg shadow-md object-cover">
+                    <img src="https://placehold.co/600x400/27272a/FFFFFF?text=Gestion+Procura" alt="Gestión de procura 2" class="w-full h-auto rounded-lg shadow-md object-cover">
                 </div>
             </div>
         </div>
@@ -898,12 +1011,12 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6" data-aos="fade-up" data-aos-duration="600">¿Listo para optimizar tus operaciones?</h2>
             <p class="text-secondary text-lg mb-10" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">Solicita tu presupuesto sin compromiso y descubre cómo podemos ayudarte.</p>
-            <a href="mailto:contacto@newproyect.com?subject=Solicitud%20de%20Presupuesto" class="btn-primary inline-block bg-white text-primary px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all duration-300" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">Solicitar Presupuesto</a>
+            <a href="mailto:contacto@newproyect.com?subject=Solicitud%20de%20Presupuesto" class="inline-block bg-white text-zinc-900 px-10 py-4 rounded-full font-semibold text-lg hover:bg-zinc-100 transition-all duration-300 shadow-lg shadow-black/20" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">Solicitar Presupuesto</a>
         </div>
     </section>
 
     <!-- ========== FOOTER ========== -->
-    <footer class="bg-gray-900 py-12">
+    <footer class="bg-black py-12 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <img src="assets/logos/NPLOGO-BLANCO.png" alt="New Proyect" class="h-10 w-auto opacity-90">
@@ -972,20 +1085,31 @@
         const mobileMenu = document.getElementById('mobile-menu');
         mobileBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            const open = !mobileMenu.classList.contains('hidden');
+            mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
             mobileBtn.querySelector('i').classList.toggle('fa-bars');
             mobileBtn.querySelector('i').classList.toggle('fa-times');
         });
         
         document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                const icon = mobileBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
         });
 
         let lastScroll = 0;
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             const currentScroll = window.pageYOffset;
-            if (currentScroll > 100) nav.classList.add('shadow-lg');
-            else nav.classList.remove('shadow-lg');
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-lg', 'shadow-black/40');
+            } else {
+                nav.classList.remove('shadow-lg', 'shadow-black/40');
+            }
             lastScroll = currentScroll;
         });
 
