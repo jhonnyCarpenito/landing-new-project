@@ -3,7 +3,7 @@
 ## 1. Objetivo y Nuevo Enfoque UI/UX
 [cite_start]El cliente ha solicitado que el texto de los servicios se muestre **en su totalidad, exactamente como se proporciona, sin recortes ni simplificaciones**[cite: 33, 41, 66, 94, 132, 159]. Debes refactorizar la sección utilizando un enfoque de **Tarjetas (Cards) + Paneles Laterales Deslizantes (Drawers) o Ventanas Modales (Modals)**.
 
-* **Vista Principal:** Un Grid de 5 tarjetas elegantes. Cada tarjeta mostrará el título del servicio, un icono/imagen representativa y un botón "Ver Especificaciones Técnicas".
+* **Vista Principal:** Un Grid de 7 tarjetas elegantes. Cada tarjeta mostrará el título del servicio, un icono/imagen representativa y un botón "Ver Especificaciones Técnicas".
 * **Interacción (JavaScript):** Al hacer clic en el botón, se debe abrir un Modal o un Drawer.
 * **Contenido del Modal:** Dentro del Modal se volcará TODO el texto detallado a continuación de manera literal, seguido de una galería de imágenes de prueba (Placeholders).
 
@@ -13,6 +13,32 @@
 * [cite_start]**Título:** SERVICIOS [cite: 32]
 * [cite_start]**Subtítulo:** Ingeniería 360° para la Continuidad de su Industria [cite: 34]
 * [cite_start]**Descripción:** En New Proyect, integramos capacidades críticas para garantizar la eficiencia de sus activos. [cite: 35] [cite_start]Desde la intervención especializada de equipos estáticos y rotativos, hasta obras civiles de envergadura y gestión de procura internacional, ofrecemos un respaldo técnico total. [cite: 36] [cite_start]Nuestro compromiso es transformar el mantenimiento en una ventaja competitiva para su operación. [cite: 37]
+
+## Orden de presentación en la landing
+
+Orden canónico de las tarjetas en la sección **Servicios** del grid en `index.html` (de arriba a abajo / izquierda a derecha):
+
+1. Integridad Mecánica y Mantenimiento de Equipos
+2. Mantenimiento Mayor e Integridad de Tanques de Almacenamiento
+3. Ingeniería Civil y Movimientos de Tierra
+4. Servicios de Pozos e Intervención de Subsuelo
+5. Inspección Técnica y Ensayos No Destructivos (END)
+6. Alquiler de Maquinaria Pesada y Equipos para la Industria Petrolera
+7. Gestión de Procura y Suministros Globales
+
+**Implementación:** Ese orden lo define el DOM de las tarjetas. Los identificadores `modal-servicio-1` … `modal-servicio-7` **no** coinciden con la posición 1–7 en pantalla: se mantienen alineados con la numeración histórica de esta especificación (Modal Servicio 1 = END, etc.) y con el contenido ya maquetado en el HTML.
+
+| Posición en grid | Servicio | `id` del modal en `index.html` |
+|------------------|----------|----------------------------------|
+| 1 | Integridad Mecánica y Mantenimiento de Equipos | `modal-servicio-2` |
+| 2 | Mantenimiento Mayor e Integridad de Tanques de Almacenamiento | `modal-servicio-3` |
+| 3 | Ingeniería Civil y Movimientos de Tierra | `modal-servicio-4` |
+| 4 | Servicios de Pozos e Intervención de Subsuelo | `modal-servicio-6` |
+| 5 | Inspección Técnica y Ensayos No Destructivos (END) | `modal-servicio-1` |
+| 6 | Alquiler de Maquinaria Pesada y Equipos para la Industria Petrolera | `modal-servicio-7` |
+| 7 | Gestión de Procura y Suministros Globales | `modal-servicio-5` |
+
+Los modales **6** y **7** (Pozos, Alquiler de Maquinaria) están implementados en `index.html`; la sección 3 de este documento detalla aún principalmente los textos de los modales 1–5. Si se requiere paridad total, falta volcar aquí el copy completo de esos dos servicios.
 
 ## 3. Contenido Íntegro para los Modales/Drawers (Usar texto LITERAL)
 

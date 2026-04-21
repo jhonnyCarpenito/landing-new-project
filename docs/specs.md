@@ -58,7 +58,11 @@ Actúa como un Desarrollador Front-End Senior experto en UI/UX y conversión. Tu
 ### Footer
 * Simple y elegante. Fondo negro o gris muy oscuro. Textos en `#C5C5C5`. Incluye el año actual y "New Proyect".
 
-## 5. Instrucciones Finales
+## 5. Documentación relacionada
+
+* **Sección Servicios (orden de tarjetas, textos de modales, galerías):** ver [specs-servicios.md](specs-servicios.md).
+
+## 6. Instrucciones Finales
 1. Genera un único archivo `index.html` con todo el código integrado.
 2. Asegúrate de incluir los scripts de Tailwind y AOS al final del `<body>`.
 3. El diseño debe ser impecable en dispositivos móviles (Mobile First).
